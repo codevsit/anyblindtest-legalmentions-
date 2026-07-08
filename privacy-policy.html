@@ -1,13 +1,1035 @@
-<!DOCTYPE html>
-    <html>
+<!doctype html>
+<html lang="en">
     <head>
-      <meta charset='utf-8'>
-      <meta name='viewport' content='width=device-width'>
-      <title>Privacy Policy</title>
-      <style> body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding:1em; } </style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AnyBlindtest — Privacy Policy</title>
+        
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+        
+        <style>
+            :root {
+                --background: #0b1326;
+                --surface: rgba(19, 27, 46, 0.65);
+                --on-surface: #dae2fd;
+                --on-surface-variant: #cfc2d6;
+                --primary: #ddb7ff; /* Lavender Accent */
+                --secondary: #c3c0ff; /* SkyBlue Accent */
+                --tertiary: #2fd9f4; /* Cyan Accent */
+                --success: #1F9D55; /* Success Green */
+                --border-color: rgba(221, 183, 255, 0.12);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: "Plus Jakarta Sans", sans-serif;
+                background-color: var(--background);
+                background-image: linear-gradient(135deg, #0b1326 0%, #060e20 100%);
+                color: var(--on-surface);
+                margin: 0;
+                padding: 40px 20px;
+                line-height: 1.6;
+                font-size: 16px;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow-x: hidden;
+            }
+
+            /* Neon ambient glows in background */
+            .glow-bg {
+                position: fixed;
+                width: 600px;
+                height: 600px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(221, 183, 255, 0.06) 0%, rgba(195, 192, 255, 0) 70%);
+                top: -200px;
+                left: -200px;
+                z-index: -1;
+                pointer-events: none;
+                filter: blur(80px);
+            }
+
+            .glow-bg-secondary {
+                position: fixed;
+                width: 500px;
+                height: 500px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(47, 217, 244, 0.04) 0%, rgba(54, 38, 206, 0) 70%);
+                bottom: -100px;
+                right: -100px;
+                z-index: -1;
+                pointer-events: none;
+                filter: blur(80px);
+            }
+
+            /* Container & Card Design */
+            .container {
+                width: 100%;
+                max-width: 800px;
+                z-index: 1;
+            }
+
+            .card {
+                background: var(--surface);
+                border: 1px solid var(--border-color);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-radius: 24px;
+                padding: 48px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            }
+
+            /* Logo & Header */
+            .header {
+                text-align: center;
+                margin-bottom: 30px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                padding-bottom: 24px;
+            }
+
+            .logo-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+
+            .equalizer {
+                display: flex;
+                align-items: flex-end;
+                gap: 3px;
+                width: 24px;
+                height: 24px;
+            }
+
+            .bar {
+                width: 3.5px;
+                border-radius: 2px;
+                animation: bounce 1.2s ease-in-out infinite alternate;
+            }
+
+            .bar-1 { height: 40%; animation-delay: 0.1s; background: var(--primary); }
+            .bar-2 { height: 80%; animation-delay: 0.4s; background: var(--secondary); }
+            .bar-3 { height: 50%; animation-delay: 0.2s; background: var(--tertiary); }
+            .bar-4 { height: 90%; animation-delay: 0.6s; background: var(--primary); }
+
+            @keyframes bounce {
+                0% { height: 20%; }
+                100% { height: 100%; }
+            }
+
+            .logo-text {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-weight: 800;
+                font-size: 26px;
+                letter-spacing: -0.02em;
+                background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--tertiary) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            h1 {
+                font-size: 32px;
+                font-weight: 800;
+                margin: 10px 0;
+                letter-spacing: -0.01em;
+                color: #ffffff;
+            }
+
+            .subtitle {
+                font-size: 14px;
+                color: var(--on-surface-variant);
+                margin: 0;
+                font-family: 'JetBrains Mono', monospace;
+            }
+
+            /* Language selector */
+            .lang-selector-container {
+                display: flex;
+                justify-content: flex-end;
+                margin-bottom: 30px;
+            }
+
+            .lang-select {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid var(--border-color);
+                color: var(--on-surface);
+                padding: 8px 16px;
+                border-radius: 12px;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                outline: none;
+                transition: all 0.2s ease;
+            }
+
+            .lang-select:hover {
+                border-color: var(--primary);
+                background: rgba(255, 255, 255, 0.08);
+            }
+
+            .lang-select option {
+                background: #0b1326;
+                color: #ffffff;
+            }
+
+            /* i18n Toggling */
+            .lang-content {
+                display: none;
+            }
+
+            .lang-content.active {
+                display: block;
+            }
+
+            /* Content Typography & Sections */
+            h2 {
+                color: var(--primary);
+                font-size: 22px;
+                font-weight: 700;
+                margin-top: 36px;
+                margin-bottom: 16px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                border-left: 3px solid var(--secondary);
+                padding-left: 12px;
+            }
+
+            p {
+                margin: 0 0 16px 0;
+                color: var(--on-surface);
+            }
+
+            /* Links styling */
+            a {
+                color: var(--tertiary);
+                text-decoration: none;
+                border-bottom: 1px dashed rgba(47, 217, 244, 0.4);
+                transition: all 0.2s ease-in-out;
+            }
+
+            a:hover {
+                color: var(--primary);
+                border-bottom: 1px solid var(--primary);
+                text-shadow: 0 0 8px rgba(221, 183, 255, 0.3);
+            }
+
+            /* Lists */
+            ul {
+                list-style: none;
+                padding-left: 0;
+                margin: 20px 0;
+            }
+
+            li {
+                position: relative;
+                padding-left: 28px;
+                margin-bottom: 12px;
+                color: var(--on-surface);
+            }
+
+            li::before {
+                content: "•";
+                position: absolute;
+                left: 8px;
+                color: var(--primary);
+                font-size: 20px;
+                line-height: 1;
+                top: 0;
+            }
+
+            /* Footer */
+            footer {
+                text-align: center;
+                margin-top: 40px;
+                color: var(--on-surface-variant);
+                font-size: 13px;
+            }
+
+            footer a {
+                color: var(--on-surface-variant);
+            }
+
+            /* Scrollbar styling */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            ::-webkit-scrollbar-track {
+                background: var(--background);
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #1e293b;
+                border-radius: 4px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--primary);
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                body {
+                    padding: 20px 12px;
+                }
+                .card {
+                    padding: 24px;
+                    border-radius: 16px;
+                }
+                h1 {
+                    font-size: 26px;
+                }
+                h2 {
+                    font-size: 18px;
+                }
+            }
+        </style>
     </head>
     <body>
-    <strong>Privacy Policy</strong><p>This privacy policy applies to the AnyBlindtest app (hereby referred to as "Application") for mobile devices that was created by Codevsit (hereby referred to as "Service Provider") as a Free service. This service is intended for use "AS IS".</p><br><strong>Information Collection and Use</strong><p>The Application collects information when you download and use it. This information may include information such as </p><ul><li>Your device's Internet Protocol address (e.g. IP address)</li><li>The pages of the Application that you visit, the time and date of your visit, the time spent on those pages</li><li>The time spent on the Application</li><li>The operating system you use on your mobile device</li></ul><p></p><br><!----><div><p>The Application collects your device's location, which helps the Service Provider determine your approximate geographical location and make use of in below ways:</p><ul><li>Geolocation Services: The Service Provider utilizes location data to provide features such as personalized content, relevant recommendations, and location-based services.</li><li>Analytics and Improvements: Aggregated and anonymized location data helps the Service Provider to analyze user behavior, identify trends, and improve the overall performance and functionality of the Application.</li><li>Third-Party Services: Periodically, the Service Provider may transmit anonymized location data to external services. These services assist them in enhancing the Application and optimizing their offerings.</li></ul></div><br><p>The Application uses Artificial Intelligence (AI) technologies to enhance user experience and provide certain features. The AI components may process user data to deliver personalized content, recommendations, or automated functionalities. All AI processing is performed in accordance with this privacy policy and applicable laws. If you have questions about the AI features or data processing, please contact the Service Provider.</p><br><p>The Service Provider may use the information you provided to contact you from time to time to provide you with important information, required notices and marketing promotions.</p><br><p>For a better experience, while using the Application, the Service Provider may require you to provide us with certain personally identifiable information, including but not limited to Localisation, Cat Name and sex. The information that the Service Provider request will be retained by them and used as described in this privacy policy.</p><br><strong>Third Party Access</strong><p>Only aggregated, anonymized data is periodically transmitted to external services to aid the Service Provider in improving the Application and their service. The Service Provider may share your information with third parties in the ways that are described in this privacy statement.</p><div><br><p>Please note that the Application utilizes third-party services that have their own Privacy Policy about handling data. Below are the links to the Privacy Policy of the third-party service providers used by the Application:</p><ul><li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li><li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li><li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li></ul></div><br><p>The Service Provider may disclose User Provided and Automatically Collected Information:</p><ul><li>as required by law, such as to comply with a subpoena, or similar legal process;</li><li>when they believe in good faith that disclosure is necessary to protect their rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;</li><li>with their trusted services providers who work on their behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.</li></ul><p></p><br><strong>Opt-Out Rights</strong><p>You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.</p><br><strong>Data Retention Policy</strong><p>The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. If you'd like them to delete User Provided Data that you have provided via the Application, please contact them at sitco.apps@protonmail.com and they will respond in a reasonable time.</p><br><strong>Children</strong><p>The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.</p><div><br><p>The Application does not address anyone under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children under 13 years of age. In the case the Service Provider discover that a child under 13 has provided personal information, the Service Provider will immediately delete this from their servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact the Service Provider (sitco.apps@protonmail.com) so that they will be able to take the necessary actions.</p></div><br><strong>Security</strong><p>The Service Provider is concerned about safeguarding the confidentiality of your information. The Service Provider provides physical, electronic, and procedural safeguards to protect information the Service Provider processes and maintains.</p><br><strong>Changes</strong><p>This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.</p><br><p>This privacy policy is effective as of 2026-04-17</p><br><strong>Your Consent</strong><p>By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended by us.</p><br><strong>Contact Us</strong><p>If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at sitco.apps@protonmail.com.</p><hr><p>This privacy policy page was generated by <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener noreferrer">App Privacy Policy Generator</a></p>
+        <div class="glow-bg"></div>
+        <div class="glow-bg-secondary"></div>
+
+        <div class="container">
+            <div class="card">
+                <header class="header">
+                    <div class="logo-container">
+                        <div class="equalizer">
+                            <div class="bar bar-1"></div>
+                            <div class="bar bar-2"></div>
+                            <div class="bar bar-3"></div>
+                            <div class="bar bar-4"></div>
+                        </div>
+                        <span class="logo-text">AnyBlindtest</span>
+                    </div>
+                    
+                    <!-- Dynamic Headers based on language -->
+                    <div class="lang-content" lang="en">
+                        <h1>Privacy Policy</h1>
+                        <p class="subtitle">Effective Date: 2026-04-17</p>
+                    </div>
+                    <div class="lang-content" lang="fr">
+                        <h1>Politique de Confidentialité</h1>
+                        <p class="subtitle">Date d'effet : 17 Avril 2026</p>
+                    </div>
+                    <div class="lang-content" lang="de">
+                        <h1>Datenschutzerklärung</h1>
+                        <p class="subtitle">Inkrafttreten: 17. April 2026</p>
+                    </div>
+                    <div class="lang-content" lang="es">
+                        <h1>Política de Privacidad</h1>
+                        <p class="subtitle">Fecha de vigencia: 17 de abril de 2026</p>
+                    </div>
+                    <div class="lang-content" lang="it">
+                        <h1>Informativa sulla Privacy</h1>
+                        <p class="subtitle">Data di decorrenza: 17 Aprile 2026</p>
+                    </div>
+                    <div class="lang-content" lang="pt">
+                        <h1>Política de Privacidade</h1>
+                        <p class="subtitle">Data de vigência: 17 de Abril de 2026</p>
+                    </div>
+                    <div class="lang-content" lang="ru">
+                        <h1>Политика конфиденциальности</h1>
+                        <p class="subtitle">Дата вступления в силу: 17 апреля 2026 г.</p>
+                    </div>
+                    <div class="lang-content" lang="ja">
+                        <h1>プライバシーポリシー</h1>
+                        <p class="subtitle">効力発生日：2026年4月17日</p>
+                    </div>
+                    <div class="lang-content" lang="ko">
+                        <h1>개인정보 처리방침</h1>
+                        <p class="subtitle">시행일: 2026년 4月 17日</p>
+                    </div>
+                    <div class="lang-content" lang="zh">
+                        <h1>隐私政策</h1>
+                        <p class="subtitle">生效日期：2026年4月17日</p>
+                    </div>
+                </header>
+
+                <!-- Language Selector Dropdown -->
+                <div class="lang-selector-container">
+                    <select id="lang-selector" class="lang-select">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="es">Español</option>
+                        <option value="it">Italiano</option>
+                        <option value="pt">Português</option>
+                        <option value="ru">Русский</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+
+                <!-- ================= ENGLISH CONTENT ================= -->
+                <div class="lang-content" lang="en">
+                    <p>
+                        This privacy policy applies to the AnyBlindtest app (hereby referred to as "Application") for mobile devices that was created by Codevsit (hereby referred to as "Service Provider") as a Free service. This service is intended for use "AS IS".
+                    </p>
+
+                    <h2>1. Information Collection and Use</h2>
+                    <p>
+                        The Application collects and processes limited information when you use it. This details what is collected and why:
+                    </p>
+                    <ul>
+                        <li><strong>Device &amp; System Information:</strong> We collect device models, operating system versions, and basic diagnostic information to maintain application stability and performance.</li>
+                        <li><strong>Media Metadata:</strong> The Application temporarily accesses media metadata (song titles, artists, albums) via notification listener permissions. This data is processed <strong>strictly on your device</strong> to drive the blind test gameplay and sync with Wear OS. It is never transmitted to our servers or third parties.</li>
+                        <li><strong>Audio &amp; Voice Commands:</strong> The Application requests access to the microphone (`RECORD_AUDIO`) to allow speech recognition for guessing song titles. All audio processing is handled **locally on-device** (or via standard system speech APIs). No audio recordings are saved, stored, or sent to our servers.</li>
+                        <li><strong>Advertising ID:</strong> The Application uses the Google Advertising ID (`AD_ID`) to show ads through AdMob and measure ad performance in compliance with Google Play Policies.</li>
+                    </ul>
+
+                    <h2>2. Third-Party Services</h2>
+                    <p>
+                        The Application utilizes third-party services that process data according to their own Privacy Policies:
+                    </p>
+                    <ul>
+                        <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <h2>3. Data Retention &amp; Deletion</h2>
+                    <p>
+                        Since the Application does not require account creation, we do not store personal profiles on external databases. All gameplay history is stored locally on your device. You can erase this data at any time by clearing the Application's storage in your system settings or by uninstalling the Application.
+                    </p>
+
+                    <h2>4. Artificial Intelligence (AI) Technologies</h2>
+                    <p>
+                        The Application incorporates local AI technologies to provide certain features. All AI processing is performed in accordance with this privacy policy and applicable laws. No personal data is used to train AI models.
+                    </p>
+
+                    <h2>5. Children's Privacy</h2>
+                    <p>
+                        The Application does not address anyone under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children under 13 years of age. If we discover that a child under 13 has provided personal information, we will immediately delete it. If you are a parent or guardian aware of such data sharing, contact us at <a href="mailto:codevsit@proton.me">codevsit@proton.me</a>.
+                    </p>
+
+                    <h2>6. Security</h2>
+                    <p>
+                        The Service Provider is concerned about safeguarding the confidentiality of your information. We implement procedural and electronic safeguards to secure local and aggregated data.
+                    </p>
+
+                    <h2>7. Changes</h2>
+                    <p>
+                        This Privacy Policy may be updated from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.
+                    </p>
+
+                    <h2>8. Contact Us</h2>
+                    <p>
+                        If you have any questions regarding privacy while using the Application, please contact us via email at <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= FRENCH CONTENT ================= -->
+                <div class="lang-content" lang="fr">
+                    <p>
+                        Cette politique de confidentialité s'applique à l'application AnyBlindtest (ci-après désignée par « l'Application ») pour appareils mobiles, créée par Codevsit (ci-après désigné par le « Fournisseur de Service ») en tant que service gratuit. Ce service est fourni « EN L'ÉTAT ».
+                    </p>
+
+                    <h2>1. Collecte et utilisation des informations</h2>
+                    <p>
+                        L'Application collecte et traite des informations limitées pour son bon fonctionnement :
+                    </p>
+                    <ul>
+                        <li><strong>Informations système et de l'appareil :</strong> Nous collectons le modèle de l'appareil, la version du système d'exploitation et des données de diagnostic de base pour garantir la stabilité de l'application.</li>
+                        <li><strong>Métadonnées médias :</strong> L'Application accède temporairement aux métadonnées musicales (titres, artistes, albums) via le service de lecture des notifications. Ces données sont traitées <strong>strictement en local sur votre appareil</strong> pour faire fonctionner le jeu de blindtest et la synchronisation Wear OS. Elles ne sont jamais envoyées sur nos serveurs.</li>
+                        <li><strong>Commandes vocales et audio :</strong> L'Application demande l'accès au microphone (`RECORD_AUDIO`) pour permettre la reconnaissance vocale et deviner les titres. Le traitement audio est géré **localement sur l'appareil** (ou via les API système). Aucun enregistrement audio n'est stocké ou transmis à nos serveurs.</li>
+                        <li><strong>Identifiant publicitaire :</strong> L'Application utilise l'identifiant publicitaire Google (`AD_ID`) afin de diffuser des annonces via AdMob et mesurer l'audience, conformément aux politiques de Google Play.</li>
+                    </ul>
+
+                    <h2>2. Services tiers</h2>
+                    <p>
+                        L'Application fait appel à des services tiers qui traitent des données conformément à leurs propres règles de confidentialité :
+                    </p>
+                    <ul>
+                        <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <h2>3. Conservation et suppression des données</h2>
+                    <p>
+                        Puisque l'Application ne nécessite pas la création de compte utilisateur, aucun profil n'est stocké en ligne. L'historique de jeu est enregistré localement sur votre appareil. Vous pouvez effacer ces données à tout moment en vidant le stockage de l'Application dans les paramètres de votre téléphone ou en désinstallant l'Application.
+                    </p>
+
+                    <h2>4. Technologies d'Intelligence Artificielle (IA)</h2>
+                    <p>
+                        L'Application intègre des technologies d'IA en local pour fournir certaines fonctions. Aucun modèle d'IA n'est entraîné avec des données personnelles d'utilisateurs.
+                    </p>
+
+                    <h2>5. Protection des mineurs</h2>
+                    <p>
+                        L'Application ne s'adresse pas aux enfants de moins de 13 ans. Le Fournisseur de Service ne collecte pas sciemment de données de mineurs. Si nous découvrons qu'un enfant de moins de 13 ans nous a transmis des informations, nous les supprimerons immédiatement. Les parents peuvent nous contacter à <a href="mailto:codevsit@proton.me">codevsit@proton.me</a>.
+                    </p>
+
+                    <h2>6. Sécurité</h2>
+                    <p>
+                        Le Fournisseur de Service met en œuvre des mesures de protection physiques et électroniques pour garantir la sécurité des données stockées localement et des statistiques agrégées.
+                    </p>
+
+                    <h2>7. Modifications</h2>
+                    <p>
+                        Cette Politique de Confidentialité peut être mise à jour périodiquement. Nous vous informerons des changements en publiant la nouvelle version sur cette page.
+                    </p>
+
+                    <h2>8. Contactez-nous</h2>
+                    <p>
+                        Si vous avez des questions concernant la confidentialité lors de l'utilisation de l'Application, veuillez nous contacter par e-mail à : <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= GERMAN CONTENT ================= -->
+                <div class="lang-content" lang="de">
+                    <p>
+                        Diese Datenschutzerklärung gilt für die AnyBlindtest-App (im Folgenden als „Anwendung“ bezeichnet) für Mobilgeräte, die von Codevsit (im Folgenden als „Dienstanbieter“ bezeichnet) als kostenloser Dienst erstellt wurde.
+                    </p>
+
+                    <h2>1. Datenerhebung und -verwendung</h2>
+                    <p>
+                        Die Anwendung erhebt und verarbeitet begrenzte Daten, um ordnungsgemäß zu funktionieren:
+                    </p>
+                    <ul>
+                        <li><strong>Geräte- &amp; Systeminformationen:</strong> Wir erfassen Gerätemodell, OS-Version und Diagnosedaten zur Stabilitätsverbesserung.</li>
+                        <li><strong>Medien-Metadaten:</strong> Die Anwendung greift über die Benachrichtigungsberechtigungen temporär auf Musikdaten (Titel, Interpret, Album) zu. Diese Daten werden <strong>ausschließlich lokal auf Ihrem Gerät</strong> verarbeitet, um das Gameplay und die Wear OS-Synchronisierung zu steuern.</li>
+                        <li><strong>Sprachsteuerung &amp; Audio:</strong> Die Anwendung fordert Mikrofonzugriff (`RECORD_AUDIO`) für die Spracherkennung an. Die Audioverarbeitung erfolgt **lokal auf dem Gerät**. Es werden keine Aufnahmen auf unseren Servern gespeichert oder an diese gesendet.</li>
+                        <li><strong>Werbe-ID:</strong> Die Anwendung nutzt die Google-Werbe-ID (`AD_ID`), um Werbung über AdMob bereitzustellen und deren Leistung zu messen.</li>
+                    </ul>
+
+                    <h2>2. Drittanbieter-Dienste</h2>
+                    <p>
+                        Die Anwendung nutzt Dienste von Drittanbietern, die Daten gemäß ihren eigenen Datenschutzerklärungen verarbeiten:
+                    </p>
+                    <ul>
+                        <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <h2>3. Datenspeicherung und -löschung</h2>
+                    <p>
+                        Da für die Anwendung kein Benutzerkonto erforderlich ist, werden keine Profile online gespeichert. Der Spielverlauf wird lokal auf Ihrem Gerät gespeichert. Sie können diese Daten jederzeit über die Systemeinstellungen Ihres Geräts oder durch Deinstallation der App löschen.
+                    </p>
+
+                    <h2>4. Technologien der Künstlichen Intelligenz (KI)</h2>
+                    <p>
+                        Die Anwendung integriert lokale KI-Technologien. Es werden keine personenbezogenen Daten zum Trainieren von KI-Modellen verwendet.
+                    </p>
+
+                    <h2>5. Schutz von Kindern</h2>
+                    <p>
+                        Die Anwendung richtet sich nicht an Kinder unter 13 Jahren. Wenn wir feststellen, dass ein Kind unter 13 Jahren uns Daten übermittelt hat, werden wir diese umgehend löschen. Kontaktieren Sie uns unter <a href="mailto:codevsit@proton.me">codevsit@proton.me</a>.
+                    </p>
+
+                    <h2>6. Sicherheit</h2>
+                    <p>
+                        Wir setzen technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre lokalen und aggregierten Daten zu schützen.
+                    </p>
+
+                    <h2>7. Änderungen</h2>
+                    <p>
+                        Diese Datenschutzerklärung kann gelegentlich aktualisiert werden. Wir informieren Sie über Änderungen, indem wir die neue Version auf dieser Seite veröffentlichen.
+                    </p>
+
+                    <h2>8. Kontaktieren Sie uns</h2>
+                    <p>
+                        Bei Fragen zum Datenschutz während der Nutzung der Anwendung wenden Sie sich bitte per E-Mail an: <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= ESPANOL CONTENT ================= -->
+                <div class="lang-content" lang="es">
+                    <p>
+                        Esta política de privacidad se aplica a la aplicación AnyBlindtest (en lo sucesivo denominada «Aplicación») para dispositivos móviles, creada por Codevsit (en lo sucesivo denominado «Proveedor de Servicios») como un servicio gratuito.
+                    </p>
+
+                    <h2>1. Recopilación y uso de información</h2>
+                    <p>
+                        La Aplicación recopila y procesa información limitada para su correcto funcionamiento:
+                    </p>
+                    <ul>
+                        <li><strong>Información del dispositivo y sistema:</strong> Recopilamos el modelo del dispositivo, versión del sistema operativo y datos básicos de diagnóstico para garantizar la estabilidad de la aplicación.</li>
+                        <li><strong>Metadatos multimedia:</strong> La Aplicación accede temporalmente a los metadatos musicales (título, artista, álbum) mediante el servicio de notificaciones. Estos datos se procesan <strong>estrictamente en su dispositivo</strong> para el juego y la sincronización con Wear OS.</li>
+                        <li><strong>Comandos de voz y audio:</strong> La Aplicación solicita acceso al micrófono (`RECORD_AUDIO`) para permitir la detección de voz y adivinar títulos. El procesamiento se realiza **localmente en el dispositivo**. No se guardan ni envían grabaciones a nuestros servidores.</li>
+                        <li><strong>Identificador de publicidad:</strong> La Aplicación utiliza el ID de publicidad de Google (`AD_ID`) para mostrar anuncios a través de AdMob, cumpliendo con las políticas de Google Play.</li>
+                    </ul>
+
+                    <h2>2. Servicios de terceros</h2>
+                    <p>
+                        La Aplicación utiliza servicios de terceros que procesan datos bajo sus propias políticas de privacidad:
+                    </p>
+                    <ul>
+                        <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <h2>3. Retención y eliminación de datos</h2>
+                    <p>
+                        Dado que la Aplicación no requiere registro de cuenta, no se almacenan perfiles en línea. El historial de juego se guarda localmente en su dispositivo y puede borrarlo en cualquier momento limpiando el almacenamiento de la aplicación o desinstalándola.
+                    </p>
+
+                    <h2>4. Tecnologías de Inteligencia Artificial (IA)</h2>
+                    <p>
+                        La Aplicación incorpora tecnologías de IA local. No se utilizan datos personales de los usuarios para entrenar modelos de IA.
+                    </p>
+
+                    <h2>5. Privacidad de los niños</h2>
+                    <p>
+                        La Aplicación no está dirigida a niños menores de 13 años. Si descubrimos que un menor de 13 años nos ha proporcionado información personal, la eliminaremos de inmediato. Contáctenos en <a href="mailto:codevsit@proton.me">codevsit@proton.me</a>.
+                    </p>
+
+                    <h2>6. Seguridad</h2>
+                    <p>
+                        El Proveedor de Servicios implementa medidas de seguridad físicas y electrónicas para salvaguardar sus datos locales.
+                    </p>
+
+                    <h2>7. Cambios</h2>
+                    <p>
+                        Esta Política de Privacidad puede actualizarse. Le notificaremos publicando los cambios en esta página.
+                    </p>
+
+                    <h2>8. Contáctenos</h2>
+                    <p>
+                        Si tiene preguntas sobre privacidad al usar la Aplicación, contáctenos por correo electrónico en: <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= ITALIANO CONTENT ================= -->
+                <div class="lang-content" lang="it">
+                    <p>
+                        Informativa sulla privacy applicabile all'applicazione AnyBlindtest (di seguito "Applicazione") per dispositivi mobili, creata da Codevsit (di seguito "Fornitore di servizi") come servizio gratuito.
+                    </p>
+
+                    <h2>1. Raccolta e utilizzo delle informazioni</h2>
+                    <p>
+                        L'Applicazione raccoglie ed elabora informazioni limitate per il suo corretto funzionamento:
+                    </p>
+                    <ul>
+                        <li><strong>Informazioni su dispositivo e sistema:</strong> Raccogliamo modello del dispositivo, versione del sistema operativo e dati diagnostici per garantire la stabilità dell'applicazione.</li>
+                        <li><strong>Metadati multimediali:</strong> L'Applicazione accede temporaneamente ai metadati musicali (titolo, artista, album) tramite il servizio di notifica. Questi dati sono elaborati <strong>esclusivamente in locale sul dispositivo</strong> per il gioco e la sincronizzazione con Wear OS.</li>
+                        <li><strong>Comandi vocali e audio:</strong> L'Applicazione richiede l'accesso al microfono (`RECORD_AUDIO`) per la digitazione vocale e indovinare i titoli. L'elaborazione avviene **localmente sul dispositivo**. Nessun audio viene memorizzato o inviato ai nostri server.</li>
+                        <li><strong>ID pubblicitario:</strong> L'Applicazione utilizza l'ID pubblicitario Google (`AD_ID`) per mostrare annunci tramite AdMob, in conformità con le norme Google Play.</li>
+                    </ul>
+
+                    <h2>2. Servizi di terze parti</h2>
+                    <p>
+                        L'Applicazione si avvale di servizi terzi che trattano i dati secondo le proprie informative sulla privacy:
+                    </p>
+                    <ul>
+                        <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <h2>3. Conservazione ed eliminazione dei dati</h2>
+                    <p>
+                        Poiché l'Applicazione non richiede la creazione di un account, non viene memorizzato alcun profilo online. La cronologia di gioco è salvata localmente sul dispositivo e può essere cancellata svuotando la memoria dell'app o disinstallandola.
+                    </p>
+
+                    <h2>4. Tecnologie di Intelligenza Artificiale (IA)</h2>
+                    <p>
+                        L'Applicazione integra tecnologie di IA locali. Nessun dato personale viene utilizzato per addestrare modelli di IA.
+                    </p>
+
+                    <h2>5. Tutela dei minori</h2>
+                    <p>
+                        L'Applicazione non si rivolge a minori di 13 anni. Qualora dovessimo riscontrare che un minore di 13 anni ci ha fornito dati personali, provvederemo a cancellarli immediatamente. Contattaci a <a href="mailto:codevsit@proton.me">codevsit@proton.me</a>.
+                    </p>
+
+                    <h2>6. Sicurezza</h2>
+                    <p>
+                        Il Fornitore di servizi adotta misure di sicurezza fisiche ed elettroniche per proteggere i dati locali ed aggregati.
+                    </p>
+
+                    <h2>7. Modifiche</h2>
+                    <p>
+                        La presente Informativa sulla privacy può essere aggiornata. Pubblicheremo le nuove condizioni su questa pagina.
+                    </p>
+
+                    <h2>8. Contattaci</h2>
+                    <p>
+                        In caso di domande sulla privacy durante l'uso dell'Applicazione, contattaci via e-mail all'indirizzo: <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= PORTUGUES CONTENT ================= -->
+                <div class="lang-content" lang="pt">
+                    <p>
+                        Esta política de privacidade aplica-se à aplicação AnyBlindtest (doravante "Aplicação") para dispositivos móveis, criada por Codevsit (doravante "Prestador de Serviços") como um serviço gratuito.
+                    </p>
+
+                    <h2>1. Recolha e utilização de informações</h2>
+                    <p>
+                        A Aplicação recolhe e processa informações limitadas para o seu correto funcionamento:
+                    </p>
+                    <ul>
+                        <li><strong>Informações do dispositivo e sistema:</strong> Recolhemos o modelo do dispositivo, versão do sistema operativo e dados básicos de diagnóstico para garantir a estabilidade da aplicação.</li>
+                        <li><strong>Metadados multimédia:</strong> A Aplicação acede temporariamente aos metadatos musicais (título, artista, álbum) através das notificações. Estes dados são processados <strong>estritamente no dispositivo</strong> para o jogo e a sincronização Wear OS.</li>
+                        <li><strong>Comandos de voz e áudio:</strong> A Aplicação solicita acesso ao microfone (`RECORD_AUDIO`) para a deteção de voz e adivinhar os títulos. O processamento é efetuado **localmente no dispositivo**. Não são enviadas gravações para os nossos servidores.</li>
+                        <li><strong>ID de publicidade:</strong> A Aplicação utiliza o ID de publicidade da Google (`AD_ID`) para exibir anúncios através da AdMob, cumprindo as regras da Google Play.</li>
+                    </ul>
+
+                    <h2>2. Serviços de terceiros</h2>
+                    <p>
+                        A Aplicação utiliza serviços de terceiros que tratam dados sob as suas próprias políticas de privacidade:
+                    </p>
+                    <ul>
+                        <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <h2>3. Retenção e eliminação de dados</h2>
+                    <p>
+                        Uma vez que a Aplicação não requer registo de conta, não guardamos perfis online. O histórico de jogo é armazenado localmente no seu dispositivo e pode ser eliminado limpando o armazenamento da aplicação ou desinstalando a mesma.
+                    </p>
+
+                    <h2>4. Tecnologias de Inteligência Artificial (IA)</h2>
+                    <p>
+                        A Aplicação incorpora tecnologias de IA local. Não são utilizados dados pessoais para treinar modelos de IA.
+                    </p>
+
+                    <h2>5. Privacidade das crianças</h2>
+                    <p>
+                        A Aplicação não se destina a crianças menores de 13 anos. Se descobrirmos que um menor de 13 anos nos forneceu dados pessoais, eliminá-los-emos imediatamente. Contacte-nos em <a href="mailto:codevsit@proton.me">codevsit@proton.me</a>.
+                    </p>
+
+                    <h2>6. Segurança</h2>
+                    <p>
+                        O Prestador de Serviços adota medidas físicas e eletrónicas de segurança para proteger os seus dados locais.
+                    </p>
+
+                    <h2>7. Alterações</h2>
+                    <p>
+                        Esta Política de Privacidade poderá ser atualizada. Notificá-lo-emos publicando os novos termos nesta página.
+                    </p>
+
+                    <h2>8. Contacte-nos</h2>
+                    <p>
+                        Se tiver questões sobre privacidade ao utilizar a Aplicação, contacte-nos por e-mail para: <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= RUSSIAN CONTENT ================= -->
+                <div class="lang-content" lang="ru">
+                    <p>
+                        Настоящая политика конфиденциальности применяется к приложению AnyBlindtest (далее «Приложение») для мобильных устройств, созданному Codevsit (далее «Поставщик услуг») как бесплатный сервис.
+                    </p>
+
+                    <h2>1. Сбор и использование информации</h2>
+                    <p>
+                        Приложение собирает и обрабатывает ограниченную информацию для своей стабильной работы:
+                    </p>
+                    <ul>
+                        <li><strong>Информация об устройстве и системе:</strong> Мы собираем данные о модели устройства, версии ОС и базовую диагностику для обеспечения стабильности приложения.</li>
+                        <li><strong>Метаданные медиафайлов:</strong> Приложение временно считывает музыкальные метаданные (название, артист, альбом) через разрешения на чтение уведомлений. Эти данные обрабатываются <strong>исключительно на вашем устройстве</strong> для игры и синхронизации с Wear OS.</li>
+                        <li><strong>Голосовые команды и аудио:</strong> Приложение запрашивает доступ к микрофону (`RECORD_AUDIO`) для распознавания речи при угадывании названий. Вся обработка звука выполняется **локально на устройстве**. Записи голоса не отправляются на наши серверы.</li>
+                        <li><strong>Рекламный идентификатор:</strong> Приложение использует рекламный идентификатор Google (`AD_ID`) для показа рекламы через AdMob в соответствии с политиками Google Play.</li>
+                    </ul>
+
+                    <h2>2. Сторонние службы</h2>
+                    <p>
+                        Приложение использует сторонние сервисы, которые обрабатывают данные в соответствии с их собственными политиками конфиденциальности:
+                    </p>
+                    <ul>
+                        <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <h2>3. Хранение и удаление данных</h2>
+                    <p>
+                        Поскольку для использования Приложения не требуется создание учетной записи, мы не храним профили на внешних серверах. История игр сохраняется локально на вашем устройстве. Вы можете удалить эти данные в любое время, очистив кэш/хранилище приложения или удалив его.
+                    </p>
+
+                    <h2>4. Технологии искусственного интеллекта (ИИ)</h2>
+                    <p>
+                        В Приложении используются локальные технологии ИИ. Личные данные пользователей не используются для обучения моделей ИИ.
+                    </p>
+
+                    <h2>5. Конфиденциальность детей</h2>
+                    <p>
+                        Приложение не предназначено для детей младше 13 лет. Если нам станет известно, что ребенок младше 13 лет предоставил личные данные, мы немедленно удалим их. Свяжитесь с нами по адресу <a href="mailto:codevsit@proton.me">codevsit@proton.me</a>.
+                    </p>
+
+                    <h2>6. Безопасность</h2>
+                    <p>
+                        Поставщик услуг применяет электронные и процедурные меры для обеспечения безопасности локально хранящихся данных.
+                    </p>
+
+                    <h2>7. Изменения</h2>
+                    <p>
+                        Настоящая Политика конфиденциальности может обновляться. Мы сообщим об изменениях, опубликовав новую версию на этой странице.
+                    </p>
+
+                    <h2>8. Свяжитесь с нами</h2>
+                    <p>
+                        Если у вас возникли вопросы по поводу конфиденциальности при использовании Приложения, напишите нам по электронной почте: <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= JAPANESE CONTENT ================= -->
+                <div class="lang-content" lang="ja">
+                    <p>
+                        本プライバシーポリシーは、Codevsit（以下「サービスプロバイダー」）が無料サービスとして提供するモバイルデバイス向けAnyBlindtestアプリ（以下「本アプリケーション」）に適用されます。
+                    </p>
+
+                    <h2>1. 情報の収集と利用</h2>
+                    <p>
+                        本アプリケーションは、その適切な動作のために限られた情報を収集および処理します：
+                    </p>
+                    <ul>
+                        <li><strong>デバイスおよびシステム情報:</strong> アプリの安定性向上のため、デバイスのモデル、OSのバージョン、および基本的な診断ログを収集します。</li>
+                        <li><strong>メディアメタデータ:</strong> 本アプリケーションは、通知読み取り権限を介して音楽のメタデータ（曲名、アーティスト、アルバム）に一時的にアクセスします。これらのデータは、イントロクイズゲームの実行およびWear OSとの同期のために<strong>デバイス内で直接処理</strong>され、サーバーに送信されることはありません。</li>
+                        <li><strong>音声コマンドとオーディオ:</strong> 音声認識による曲名の回答を行うため、マイクへのアクセス権限（`RECORD_AUDIO`）を要求します。音声処理は**デバイス上でローカルに**（またはOS標準の音声認識機能を通じて）行われ、録音データがサーバーに保存・送信されることはありません。</li>
+                        <li><strong>広告識別子:</strong> Google Playのポリシーに基づき、AdMobを通じた広告配信および測定のため、Google広告ID（`AD_ID`）を使用します。</li>
+                    </ul>
+
+                    <h2>2. サードパーティサービス</h2>
+                    <p>
+                        本アプリケーションは、独自のポリシーに基づきデータを処理する以下のサードパーティサービスを使用しています：
+                    </p>
+                    <ul>
+                        <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <h2>3. データの保持と削除</h2>
+                    <p>
+                        本アプリケーションはアカウント作成を必要としないため、外部データベースに個人プロファイルを保存することはありません。ゲーム履歴などのデータはすべてデバイスにローカル保存されます。端末の設定からアプリのストレージデータを消去するか、アプリをアンインストールすることで、いつでもデータを削除できます。
+                    </p>
+
+                    <h2>4. 人工知能（AI）技術</h2>
+                    <p>
+                        本アプリケーションはローカルAI技術を内蔵しています。ユーザーの個人データがAIモデルの学習に使用されることはありません。
+                    </p>
+
+                    <h2>5. お子様のプライバシー保護</h2>
+                    <p>
+                        本アプリケーションは13歳未満の子供を対象としていません。13歳未満の子供から個人情報を意図的に収集することはありません。該当するデータ送信に気づかれた場合は、 <a href="mailto:codevsit@proton.me">codevsit@proton.me</a> までご連絡ください。即座にデータを削除します。
+                    </p>
+
+                    <h2>6. セキュリティ</h2>
+                    <p>
+                        サービスプロバイダーは、ローカルデータや集計データの安全性を確保するため、必要なシステム上および手続き上の安全管理措置を講じています。
+                    </p>
+
+                    <h2>7. ポリシーの変更</h2>
+                    <p>
+                        本ポリシーは定期的に更新される場合があります。最新の情報はこのページに掲載されます。
+                    </p>
+
+                    <h2>8. お問い合わせ</h2>
+                    <p>
+                        本アプリケーション使用におけるプライバシーに関するご質問は、メールにてご連絡ください： <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>。
+                    </p>
+                </div>
+
+                <!-- ================= KOREAN CONTENT ================= -->
+                <div class="lang-content" lang="ko">
+                    <p>
+                        본 개인정보 처리방침은 Codevsit(이하 "서비스 제공자")이 무료 서비스로 제공하는 모바일 기기용 AnyBlindtest 앱(이하 "애플리케이션")에 적용됩니다.
+                    </p>
+
+                    <h2>1. 개인정보의 수집 및 이용</h2>
+                    <p>
+                        애플리케이션은 원활한 동작을 위해 한정된 정보를 수집 및 처리합니다:
+                    </p>
+                    <ul>
+                        <li><strong>기기 및 시스템 정보:</strong> 애플리케이션의 안정성을 높이기 위해 기기 모델, OS 버전 및 기본 진단 로그를 수집합니다.</li>
+                        <li><strong>미디어 메타데이터:</strong> 애플리케이션은 알림 접근 권한을 통해 음악 메타데이터(곡명, 아티스트, 앨범명)를 일시적으로 읽어옵니다. 이 데이터는 게임 진행 및 Wear OS 동기화를 위해 <strong>오직 사용자 기기 내부에서만 처리</strong>되며, 당사 서버로 전송되지 않습니다.</li>
+                        <li><strong>음성 명령 및 오디오:</strong> 음성 인식을 통한 제목 맞추기 기능을 지원하기 위해 마이크 접근 권한(`RECORD_AUDIO`)을 요청합니다. 모든 음성 처리는 **기기 로컬(또는 OS 표준 음성 인식 API)**을 통해 수행되며, 녹음 데이터는 서버에 저장되거나 송신되지 않습니다.</li>
+                        <li><strong>광고 식별자:</strong> Google Play 정책에 따라, AdMob을 통한 광고 게재 및 분석을 위해 Google 광고 ID(`AD_ID`)를 사용합니다.</li>
+                    </ul>
+
+                    <h2>2. 제3자 서비스</h2>
+                    <p>
+                        애플리케이션은 자체 개인정보 처리방침에 따라 데이터를 처리하는 아래의 제3자 서비스를 이용합니다:
+                    </p>
+                    <ul>
+                        <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <h2>3. 데이터 보유 및 삭제</h2>
+                    <p>
+                        애플리케이션은 회원가입을 요구하지 않으므로 외부 데이터베이스에 개인 프로필을 저장하지 않습니다. 게임 진행 내역 등은 모두 사용자 기기에 로컬로 저장되며, 기기 설정에서 앱 데이터를 삭제하거나 앱을 언인스톨하여 언제든지 삭제할 수 있습니다.
+                    </p>
+
+                    <h2>4. 인공지능(AI) 기술</h2>
+                    <p>
+                        본 애플리케이션은 로컬 AI 기술을 활용합니다. 사용자의 개인정보는 AI 모델을 학습시키는 데 절대 사용되지 않습니다.
+                    </p>
+
+                    <h2>5. 아동의 개인정보 보호</h2>
+                    <p>
+                        본 애플리케이션은 13세 미만 아동을 대상으로 하지 않습니다. 만약 13세 미만 아동의 개인정보가 수집된 사실을 인지할 경우 즉시 삭제 조치합니다. 관련 문의는 <a href="mailto:codevsit@proton.me">codevsit@proton.me</a>로 연락해 주시기 바랍니다.
+                    </p>
+
+                    <h2>6. 보안</h2>
+                    <p>
+                        서비스 제공자는 로컬 및 집계 데이터의 안전을 보장하기 위해 적절한 기술적, 관리적 보호 조치를 시행하고 있습니다.
+                    </p>
+
+                    <h2>7. 변경</h2>
+                    <p>
+                        본 개인정보 처리방침은 주기적으로 업데이트될 수 있으며, 변경 사항은 이 페이지를 통해 공지됩니다.
+                    </p>
+
+                    <h2>8. 문의하기</h2>
+                    <p>
+                        애플리케이션 이용 중 개인정보 보호와 관련하여 문의 사항이 있으신 경우 이메일로 연락 주시기 바랍니다: <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= CHINESE CONTENT ================= -->
+                <div class="lang-content" lang="zh">
+                    <p>
+                        本隐私政策适用于由 Codevsit（以下简称“服务提供商”）作为免费服务创建的用于移动设备的 AnyBlindtest 应用程序（以下简称“应用程序”）。本服务按“原样”提供。
+                    </p>
+
+                    <h2>1. 信息收集与使用</h2>
+                    <p>
+                        本应用程序在您使用时收集并处理有限的信息，以提供正常功能：
+                    </p>
+                    <ul>
+                        <li><strong>设备和系统信息：</strong> 我们收集设备型号、操作系统版本和基本诊断信息，以维护应用程序的稳定性和性能。</li>
+                        <li><strong>媒体元数据：</strong> 本应用程序通过通知栏读取权限临时访问音乐元数据（歌名、歌手、专辑）。这些数据<strong>仅在您的设备上进行本地处理</strong>，用于驱动游戏玩法并与 Wear OS 保持同步，绝不会发送到我们的服务器。</li>
+                        <li><strong>语音命令和音频：</strong> 本应用程序请求麦克风访问权限（`RECORD_AUDIO`），以便通过语音识别猜测歌名。所有音频处理均在**设备本地处理**（或通过系统标准语音 API）。我们不会保存、存储或向我们的服务器发送任何录音。</li>
+                        <li><strong>广告标识符：</strong> 依据 Google Play 政策，本应用程序使用 Google 广告 ID（`AD_ID`）通过 AdMob 展示广告并测量广告效果。</li>
+                    </ul>
+
+                    <h2>2. 第三方服务</h2>
+                    <p>
+                        本应用程序使用了第三方服务，这些服务将根据其自身的隐私政策处理数据：
+                    </p>
+                    <ul>
+                        <li><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/support/privacy/" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <h2>3. 数据保留与删除</h2>
+                    <p>
+                        由于本应用程序不需要创建帐户，我们不会在外部数据库中存储任何个人资料。所有游戏历史记录都本地保存在您的设备中。您随时可以通过系统设置清除应用程序的存储数据，或通过卸载应用程序来删除这些数据。
+                    </p>
+
+                    <h2>4. 人工智能 (AI) 技术</h2>
+                    <p>
+                        本应用程序集成了本地 AI 技术。我们绝不会使用用户的任何个人数据来训练 AI 模型。
+                    </p>
+
+                    <h2>5. 儿童隐私</h2>
+                    <p>
+                        本应用程序不面向 13 岁以下的儿童。如果家长或监护人发现 13 岁以下的儿童向我们提供了个人信息，请通过以下邮箱联系我们： <a href="mailto:codevsit@proton.me">codevsit@proton.me</a>，我们将立即予以删除。
+                    </p>
+
+                    <h2>6. 安全</h2>
+                    <p>
+                        服务提供商致力于保护您的本地存储数据和聚合统计数据的安全性，并采取了必要的系统与流程安全措施。
+                    </p>
+
+                    <h2>7. 变更</h2>
+                    <p>
+                        本隐私政策可能会定期更新。如有变更，我们将在本页面发布新的隐私政策。
+                    </p>
+
+                    <h2>8. 联系我们</h2>
+                    <p>
+                        如果您在使用本应用程序时有任何关于隐私的疑问，请通过电子邮件与我们联系： <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>。
+                    </p>
+                </div>
+
+            </div>
+            
+            <footer>
+                <p>
+                    This Privacy Policy page was generated by 
+                    <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener noreferrer">App Privacy Policy Generator</a>.
+                </p>
+            </footer>
+        </div>
+
+        <!-- ================= JAVASCRIPT ================= -->
+        <script>
+            // Supported languages list
+            const SUPPORTED_LANGUAGES = ['en', 'fr', 'de', 'es', 'it', 'pt', 'ru', 'ja', 'ko', 'zh'];
+            const DEFAULT_LANGUAGE = 'en';
+
+            /**
+             * Detects user preferred language based on URL query or browser locale.
+             */
+            function getPreferredLanguage() {
+                // 1. Force via URL parameter (e.g. ?lang=fr or ?hl=fr)
+                const urlParams = new URLSearchParams(window.location.search);
+                const langParam = urlParams.get('lang') || urlParams.get('hl');
+                if (langParam) {
+                    const cleanParam = langParam.toLowerCase().split('-')[0];
+                    if (SUPPORTED_LANGUAGES.includes(cleanParam)) return cleanParam;
+                }
+
+                // 2. Fallback to native browser language
+                const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase().split('-')[0];
+                if (SUPPORTED_LANGUAGES.includes(browserLang)) {
+                    return browserLang;
+                }
+
+                // 3. System Default
+                return DEFAULT_LANGUAGE;
+            }
+
+            /**
+             * Sets the active language state and updates UI visibility.
+             */
+            function setLanguage(lang) {
+                const activeLang = SUPPORTED_LANGUAGES.includes(lang) ? lang : DEFAULT_LANGUAGE;
+                
+                // Update HTML land tag
+                document.documentElement.lang = activeLang;
+                
+                // Sync Language selector
+                const selector = document.getElementById('lang-selector');
+                if (selector) selector.value = activeLang;
+                
+                // Show selected language blocks and hide the rest
+                document.querySelectorAll('.lang-content').forEach(element => {
+                    if (element.getAttribute('lang') === activeLang) {
+                        element.classList.add('active');
+                    } else {
+                        element.classList.remove('active');
+                    }
+                });
+            }
+
+            // Bind Event Listeners
+            document.addEventListener('DOMContentLoaded', () => {
+                // Initialize default or detected language
+                const preferredLang = getPreferredLanguage();
+                setLanguage(preferredLang);
+                
+                // Handle manual dropdown selections
+                const selector = document.getElementById('lang-selector');
+                if (selector) {
+                    selector.addEventListener('change', (e) => {
+                        setLanguage(e.target.value);
+                    });
+                }
+            });
+        </script>
     </body>
-    </html>
-      
+</html>
