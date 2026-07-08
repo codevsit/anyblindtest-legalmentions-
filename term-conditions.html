@@ -1,13 +1,1363 @@
-<!DOCTYPE html>
-    <html>
+<!doctype html>
+<html lang="en">
     <head>
-      <meta charset='utf-8'>
-      <meta name='viewport' content='width=device-width'>
-      <title>Terms &amp; Conditions</title>
-      <style> body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; padding:1em; } </style>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>AnyBlindtest — Terms &amp; Conditions</title>
+        
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+        
+        <style>
+            :root {
+                --background: #0b1326;
+                --surface: rgba(19, 27, 46, 0.65);
+                --on-surface: #dae2fd;
+                --on-surface-variant: #cfc2d6;
+                --primary: #ddb7ff; /* Lavender Accent */
+                --secondary: #c3c0ff; /* SkyBlue Accent */
+                --tertiary: #2fd9f4; /* Cyan Accent */
+                --success: #1F9D55; /* Success Green */
+                --border-color: rgba(221, 183, 255, 0.12);
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family: "Plus Jakarta Sans", sans-serif;
+                background-color: var(--background);
+                background-image: linear-gradient(135deg, #0b1326 0%, #060e20 100%);
+                color: var(--on-surface);
+                margin: 0;
+                padding: 40px 20px;
+                line-height: 1.6;
+                font-size: 16px;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                overflow-x: hidden;
+            }
+
+            /* Neon ambient glows in background */
+            .glow-bg {
+                position: fixed;
+                width: 600px;
+                height: 600px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(221, 183, 255, 0.06) 0%, rgba(195, 192, 255, 0) 70%);
+                top: -200px;
+                left: -200px;
+                z-index: -1;
+                pointer-events: none;
+                filter: blur(80px);
+            }
+
+            .glow-bg-secondary {
+                position: fixed;
+                width: 500px;
+                height: 500px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(47, 217, 244, 0.04) 0%, rgba(54, 38, 206, 0) 70%);
+                bottom: -100px;
+                right: -100px;
+                z-index: -1;
+                pointer-events: none;
+                filter: blur(80px);
+            }
+
+            /* Container & Card Design */
+            .container {
+                width: 100%;
+                max-width: 800px;
+                z-index: 1;
+            }
+
+            .card {
+                background: var(--surface);
+                border: 1px solid var(--border-color);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border-radius: 24px;
+                padding: 48px;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            }
+
+            /* Logo & Header */
+            .header {
+                text-align: center;
+                margin-bottom: 30px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                padding-bottom: 24px;
+            }
+
+            .logo-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+
+            .equalizer {
+                display: flex;
+                align-items: flex-end;
+                gap: 3px;
+                width: 24px;
+                height: 24px;
+            }
+
+            .bar {
+                width: 3.5px;
+                border-radius: 2px;
+                animation: bounce 1.2s ease-in-out infinite alternate;
+            }
+
+            .bar-1 { height: 40%; animation-delay: 0.1s; background: var(--primary); }
+            .bar-2 { height: 80%; animation-delay: 0.4s; background: var(--secondary); }
+            .bar-3 { height: 50%; animation-delay: 0.2s; background: var(--tertiary); }
+            .bar-4 { height: 90%; animation-delay: 0.6s; background: var(--primary); }
+
+            @keyframes bounce {
+                0% { height: 20%; }
+                100% { height: 100%; }
+            }
+
+            .logo-text {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-weight: 800;
+                font-size: 26px;
+                letter-spacing: -0.02em;
+                background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--tertiary) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            h1 {
+                font-size: 32px;
+                font-weight: 800;
+                margin: 10px 0;
+                letter-spacing: -0.01em;
+                color: #ffffff;
+            }
+
+            .subtitle {
+                font-size: 14px;
+                color: var(--on-surface-variant);
+                margin: 0;
+                font-family: 'JetBrains Mono', monospace;
+            }
+
+            /* Language selector */
+            .lang-selector-container {
+                display: flex;
+                justify-content: flex-end;
+                margin-bottom: 30px;
+            }
+
+            .lang-select {
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid var(--border-color);
+                color: var(--on-surface);
+                padding: 8px 16px;
+                border-radius: 12px;
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                outline: none;
+                transition: all 0.2s ease;
+            }
+
+            .lang-select:hover {
+                border-color: var(--primary);
+                background: rgba(255, 255, 255, 0.08);
+            }
+
+            .lang-select option {
+                background: #0b1326;
+                color: #ffffff;
+            }
+
+            /* i18n Toggling */
+            .lang-content {
+                display: none;
+            }
+
+            .lang-content.active {
+                display: block;
+            }
+
+            /* Content Typography & Sections */
+            h2 {
+                color: var(--primary);
+                font-size: 22px;
+                font-weight: 700;
+                margin-top: 36px;
+                margin-bottom: 16px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                border-left: 3px solid var(--secondary);
+                padding-left: 12px;
+            }
+
+            p {
+                margin: 0 0 16px 0;
+                color: var(--on-surface);
+            }
+
+            /* Links styling */
+            a {
+                color: var(--tertiary);
+                text-decoration: none;
+                border-bottom: 1px dashed rgba(47, 217, 244, 0.4);
+                transition: all 0.2s ease-in-out;
+            }
+
+            a:hover {
+                color: var(--primary);
+                border-bottom: 1px solid var(--primary);
+                text-shadow: 0 0 8px rgba(221, 183, 255, 0.3);
+            }
+
+            /* Lists */
+            ul {
+                list-style: none;
+                padding-left: 0;
+                margin: 20px 0;
+            }
+
+            li {
+                position: relative;
+                padding-left: 28px;
+                margin-bottom: 12px;
+                color: var(--on-surface);
+            }
+
+            li::before {
+                content: "•";
+                position: absolute;
+                left: 8px;
+                color: var(--primary);
+                font-size: 20px;
+                line-height: 1;
+                top: 0;
+            }
+
+            /* Custom Offer Box for Pre-Registration */
+            .offer-box {
+                background: rgba(195, 192, 255, 0.04);
+                border: 1px solid rgba(195, 192, 255, 0.12);
+                border-radius: 20px;
+                padding: 32px;
+                margin: 40px 0;
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .offer-box::after {
+                content: "";
+                position: absolute;
+                top: -50%;
+                right: -50%;
+                width: 300px;
+                height: 300px;
+                background: radial-gradient(circle, rgba(221, 183, 255, 0.08) 0%, transparent 70%);
+                pointer-events: none;
+            }
+
+            .offer-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: var(--primary);
+                background: rgba(221, 183, 255, 0.1);
+                padding: 4px 12px;
+                border-radius: 20px;
+                margin-bottom: 16px;
+                border: 1px solid rgba(221, 183, 255, 0.2);
+            }
+
+            .offer-box h3 {
+                color: #ffffff;
+                margin: 0 0 16px 0;
+                font-size: 20px;
+                font-weight: 800;
+                letter-spacing: -0.01em;
+            }
+
+            /* Footer */
+            footer {
+                text-align: center;
+                margin-top: 40px;
+                color: var(--on-surface-variant);
+                font-size: 13px;
+            }
+
+            footer a {
+                color: var(--on-surface-variant);
+            }
+
+            /* Scrollbar styling */
+            ::-webkit-scrollbar {
+                width: 8px;
+            }
+            ::-webkit-scrollbar-track {
+                background: var(--background);
+            }
+            ::-webkit-scrollbar-thumb {
+                background: #1e293b;
+                border-radius: 4px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: var(--primary);
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                body {
+                    padding: 20px 12px;
+                }
+                .card {
+                    padding: 24px;
+                    border-radius: 16px;
+                }
+                h1 {
+                    font-size: 26px;
+                }
+                h2 {
+                    font-size: 18px;
+                }
+            }
+        </style>
     </head>
     <body>
-    <strong>Terms &amp; Conditions</strong><br><p>These terms and conditions apply to the AnyBlindtest app (hereby referred to as "Application") for mobile devices that was created by Codevsit (hereby referred to as "Service Provider") as a Free service.</p><br><p>Upon downloading or utilizing the Application, you are automatically agreeing to the following terms. It is strongly advised that you thoroughly read and understand these terms prior to using the Application.</p><div><br><p>Unauthorized copying, modification of the Application, any part of the Application, or our trademarks is strictly prohibited. Any attempts to extract the source code of the Application, translate the Application into other languages, or create derivative versions are not permitted. All trademarks, copyrights, database rights, and other intellectual property rights related to the Application remain the property of the Service Provider.</p></div><br><p>The Service Provider is dedicated to ensuring that the Application is as beneficial and efficient as possible. As such, they reserve the right to modify the Application or charge for their services at any time and for any reason. The Service Provider assures you that any charges for the Application or its services will be clearly communicated to you.</p><br><p>The Application stores and processes personal data that you have provided to the Service Provider in order to provide the Service. It is your responsibility to maintain the security of your phone and access to the Application. The Service Provider strongly advise against jailbreaking or rooting your phone, which involves removing software restrictions and limitations imposed by the official operating system of your device. Such actions could expose your phone to malware, viruses, malicious programs, compromise your phone's security features, and may result in the Application not functioning correctly or at all.</p><div><p>Please note that the Application utilizes third-party services that have their own Terms and Conditions. Below are the links to the Terms and Conditions of the third-party service providers used by the Application:</p><ul><li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li><li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li><li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li></ul></div><br><p>Please be aware that the Service Provider does not assume responsibility for certain aspects. Some functions of the Application require an active internet connection, which can be Wi-Fi or provided by your mobile network provider. The Service Provider cannot be held responsible if the Application does not function at full capacity due to lack of access to Wi-Fi or if you have exhausted your data allowance.</p><br><p>If you are using the application outside of a Wi-Fi area, please be aware that your mobile network provider's agreement terms still apply. Consequently, you may incur charges from your mobile provider for data usage during the connection to the application, or other third-party charges. By using the application, you accept responsibility for any such charges, including roaming data charges if you use the application outside of your home territory (i.e., region or country) without disabling data roaming. If you are not the bill payer for the device on which you are using the application, they assume that you have obtained permission from the bill payer.</p><br><p>Similarly, the Service Provider cannot always assume responsibility for your usage of the application. For instance, it is your responsibility to ensure that your device remains charged. If your device runs out of battery and you are unable to access the Service, the Service Provider cannot be held responsible.</p><br><p>In terms of the Service Provider's responsibility for your use of the application, it is important to note that while they strive to ensure that it is updated and accurate at all times, they do rely on third parties to provide information to them so that they can make it available to you. The Service Provider accepts no liability for any loss, direct or indirect, that you experience as a result of relying entirely on this functionality of the application.</p><br><div><p>The Application incorporates Artificial Intelligence (AI) technologies to provide certain features or services. By using the Application, you acknowledge and agree that AI may be used to process data and deliver functionalities. The Service Provider ensures that all AI usage complies with applicable laws and is designed to benefit the user experience.</p><br></div><p>The Service Provider may wish to update the application at some point. The application is currently available as per the requirements for the operating system (and for any additional systems they decide to extend the availability of the application to) may change, and you will need to download the updates if you want to continue using the application. The Service Provider does not guarantee that it will always update the application so that it is relevant to you and/or compatible with the particular operating system version installed on your device. However, you agree to always accept updates to the application when offered to you. The Service Provider may also wish to cease providing the application and may terminate its use at any time without providing termination notice to you. Unless they inform you otherwise, upon any termination, (a) the rights and licenses granted to you in these terms will end; (b) you must cease using the application, and (if necessary) delete it from your device.</p><br><strong>Changes to These Terms and Conditions</strong><p>The Service Provider may periodically update their Terms and Conditions. Therefore, you are advised to review this page regularly for any changes. The Service Provider will notify you of any changes by posting the new Terms and Conditions on this page.</p><br><p>These terms and conditions are effective as of 2026-04-17</p><br><strong>Contact Us</strong><p>If you have any questions or suggestions about the Terms and Conditions, please do not hesitate to contact the Service Provider at sitco.apps@protonmail.com.</p><hr><p>This Terms and Conditions page was generated by <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener noreferrer">App Privacy Policy Generator</a></p>
+        <div class="glow-bg"></div>
+        <div class="glow-bg-secondary"></div>
+
+        <div class="container">
+            <div class="card">
+                <header class="header">
+                    <div class="logo-container">
+                        <div class="equalizer">
+                            <div class="bar bar-1"></div>
+                            <div class="bar bar-2"></div>
+                            <div class="bar bar-3"></div>
+                            <div class="bar bar-4"></div>
+                        </div>
+                        <span class="logo-text">AnyBlindtest</span>
+                    </div>
+                    
+                    <!-- Dynamic Headers based on language -->
+                    <div class="lang-content" lang="en">
+                        <h1>Terms &amp; Conditions</h1>
+                        <p class="subtitle">Effective Date: 2026-04-17</p>
+                    </div>
+                    <div class="lang-content" lang="fr">
+                        <h1>Conditions Générales</h1>
+                        <p class="subtitle">Date d'effet : 17 Avril 2026</p>
+                    </div>
+                    <div class="lang-content" lang="de">
+                        <h1>Allgemeine Geschäftsbedingungen</h1>
+                        <p class="subtitle">Inkrafttreten: 17. April 2026</p>
+                    </div>
+                    <div class="lang-content" lang="es">
+                        <h1>Términos y Condiciones</h1>
+                        <p class="subtitle">Fecha de vigencia: 17 de abril de 2026</p>
+                    </div>
+                    <div class="lang-content" lang="it">
+                        <h1>Termini e Condizioni</h1>
+                        <p class="subtitle">Data di decorrenza: 17 Aprile 2026</p>
+                    </div>
+                    <div class="lang-content" lang="pt">
+                        <h1>Termos e Condições</h1>
+                        <p class="subtitle">Data de vigência: 17 de Abril de 2026</p>
+                    </div>
+                    <div class="lang-content" lang="ru">
+                        <h1>Условия и положения</h1>
+                        <p class="subtitle">Дата вступления в силу: 17 апреля 2026 г.</p>
+                    </div>
+                    <div class="lang-content" lang="ja">
+                        <h1>利用規約</h1>
+                        <p class="subtitle">効力発生日：2026年4月17日</p>
+                    </div>
+                    <div class="lang-content" lang="ko">
+                        <h1>이용 약관</h1>
+                        <p class="subtitle">시행일: 2026년 4月 17日</p>
+                    </div>
+                    <div class="lang-content" lang="zh">
+                        <h1>条款与条件</h1>
+                        <p class="subtitle">生效日期：2026年4月17日</p>
+                    </div>
+                </header>
+
+                <!-- Language Selector Dropdown -->
+                <div class="lang-selector-container">
+                    <select id="lang-selector" class="lang-select">
+                        <option value="en">English</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="es">Español</option>
+                        <option value="it">Italiano</option>
+                        <option value="pt">Português</option>
+                        <option value="ru">Русский</option>
+                        <option value="ja">日本語</option>
+                        <option value="ko">한국어</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+
+                <!-- ================= ENGLISH CONTENT ================= -->
+                <div class="lang-content" lang="en">
+                    <p>
+                        These terms and conditions apply to the AnyBlindtest app (hereby referred to as "Application") for mobile devices that was created by Codevsit (hereby referred to as "Service Provider") as a Free service.
+                    </p>
+                    <p>
+                        Upon downloading or utilizing the Application, you are automatically agreeing to the following terms. It is strongly advised that you thoroughly read and understand these terms prior to using the Application.
+                    </p>
+
+                    <h2>1. Intellectual Property &amp; Usage Restrictions</h2>
+                    <p>
+                        Unauthorized copying, modification of the Application, any part of the Application, or our trademarks is strictly prohibited. Any attempts to extract the source code of the Application, translate the Application into other languages, or create derivative versions are not permitted. All trademarks, copyrights, database rights, and other intellectual property rights related to the Application remain the property of the Service Provider.
+                    </p>
+
+                    <h2>2. Modifications &amp; Service Charges</h2>
+                    <p>
+                        The Service Provider reserves the right to modify the Application or charge for their services at any time and for any reason. Any charges for the Application or its services will be clearly communicated to you.
+                    </p>
+
+                    <h2>3. Data Security &amp; Device Integrity</h2>
+                    <p>
+                        The Application stores and processes personal data that you have provided in order to deliver the Service. It is your responsibility to maintain the security of your device and access to the Application.
+                    </p>
+                    <p>
+                        The Service Provider strongly advises against jailbreaking or rooting your device, which involves removing software restrictions and limitations imposed by the official operating system. Doing so could expose your device to security vulnerabilities, malware, compromise its security features, and prevent the Application from functioning correctly.
+                    </p>
+
+                    <h2>4. Third-Party Services</h2>
+                    <p>
+                        The Application utilizes third-party services that have their own Terms and Conditions. Below are the links to the terms of these service providers:
+                    </p>
+                    <ul>
+                        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <!-- Offer Box (Anchor targets are in this shared parent structure, but we keep it here for layout flow) -->
+                    <div class="offer-box" id="pre-registration-en">
+                        <div class="offer-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top: -1px;"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            Launch Promo
+                        </div>
+                        <h3>Launch &amp; Pre-Registration Offer</h3>
+                        <p>
+                            If you pre-registered for the Application on the Google Play Store prior to its official release, you are eligible to receive a <strong>7-day free trial</strong> of the premium bundle. This promotional offer is activated automatically upon the <strong>first launch</strong> of the Application on your device. The 7-day trial period starts immediately at that first launch and runs continuously for 168 hours; it cannot be paused, suspended, or reactivated.
+                        </p>
+                    </div>
+
+                    <h2>5. Limitations of Liability</h2>
+                    <p>
+                        Certain functions of the Application require an active internet connection. The Service Provider cannot be held responsible if the Application does not function at full capacity due to lack of internet access or data.
+                    </p>
+                    <p>
+                        By using the Application, you accept responsibility for any charges incurred from your mobile provider, including data roaming charges.
+                    </p>
+                    <p>
+                        While the Service Provider strives to ensure that the Application is updated and accurate at all times, they rely on third parties to provide information. The Service Provider accepts no liability for any loss, direct or indirect, resulting from reliance on the Application's features.
+                    </p>
+
+                    <h2>6. Artificial Intelligence (AI) Technologies</h2>
+                    <p>
+                        The Application incorporates Artificial Intelligence (AI) technologies to deliver certain features. By using the Application, you agree that AI may be used to process data and deliver functionalities in compliance with applicable laws.
+                    </p>
+
+                    <h2>7. Updates &amp; Termination</h2>
+                    <p>
+                        The Application is currently available and may change as operating system requirements evolve. You will need to download updates to continue using it. The Service Provider does not guarantee that the Application will always be updated to remain compatible with your system version.
+                    </p>
+                    <p>
+                        The Service Provider may terminate the Application's availability at any time without notice. Upon termination, all rights and licenses granted to you will end, and you must cease using the Application and delete it if necessary.
+                    </p>
+
+                    <h2>8. Changes to These Terms</h2>
+                    <p>
+                        The Service Provider may periodically update these Terms. You are advised to review this page regularly for changes.
+                    </p>
+
+                    <h2>9. Contact Us</h2>
+                    <p>
+                        If you have any questions or suggestions, please contact the Service Provider at <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= FRENCH CONTENT ================= -->
+                <div class="lang-content" lang="fr">
+                    <p>
+                        Ces conditions générales s'appliquent à l'application AnyBlindtest (ci-après désignée par « l'Application ») pour appareils mobiles, créée par Codevsit (ci-après désigné par le « Fournisseur de Service ») en tant que service gratuit.
+                    </p>
+                    <p>
+                        En téléchargeant ou en utilisant l'Application, vous acceptez automatiquement les conditions suivantes. Il est fortement conseillé de lire et de comprendre attentivement ces conditions avant d'utiliser l'Application.
+                    </p>
+
+                    <h2>1. Propriété intellectuelle et restrictions d'utilisation</h2>
+                    <p>
+                        La copie non autorisée, la modification de l'Application, de toute partie de l'Application ou de nos marques de commerce est strictement interdite. Toute tentative d'extraction du code source de l'Application, de traduction de l'Application dans d'autres langues ou de création de versions dérivées n'est pas autorisée. Toutes les marques, droits d'auteur, droits sur les bases de données et autres droits de propriété intellectuelle liés à l'Application restent la propriété exclusive du Fournisseur de Service.
+                    </p>
+
+                    <h2>2. Modifications et frais de service</h2>
+                    <p>
+                        Le Fournisseur de Service se réserve le droit de modifier l'Application ou de facturer ses services à tout moment et pour n'importe quelle raison. Tout frais éventuel pour l'Application ou ses services vous sera communiqué de façon claire.
+                    </p>
+
+                    <h2>3. Sécurité des données et intégrité de l'appareil</h2>
+                    <p>
+                        L'Application stocke et traite les données personnelles que vous avez fournies afin de fournir le Service. Il est de votre responsabilité de maintenir la sécurité de votre appareil et l'accès à l'Application.
+                    </p>
+                    <p>
+                        Le Fournisseur de Service déconseille fortement de jailbreaker ou de rooter votre téléphone (suppression des restrictions logicielles de l'OS). Ces actions peuvent exposer votre téléphone à des logiciels malveillants, compromettre ses fonctions de sécurité et empêcher l'Application de fonctionner correctement.
+                    </p>
+
+                    <h2>4. Services tiers</h2>
+                    <p>
+                        L'Application utilise des services tiers qui ont leurs propres conditions générales d'utilisation. Voici les liens vers les conditions des fournisseurs de services utilisés :
+                    </p>
+                    <ul>
+                        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <div class="offer-box" id="pre-registration-fr">
+                        <div class="offer-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top: -1px;"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            Promo de lancement
+                        </div>
+                        <h3>Offre de lancement &amp; pré-inscription</h3>
+                        <p>
+                            Si vous vous êtes préinscrit à l'Application sur le Google Play Store avant sa sortie officielle, vous bénéficiez d'une <strong>période d'essai gratuite de 7 jours</strong> pour le pack premium. Cette offre promotionnelle s'active automatiquement dès le <strong>premier lancement</strong> de l'Application sur votre appareil. La période d'essai de 7 jours débute immédiatement lors de ce premier lancement et s'étend de manière continue sur 168 heures ; elle ne peut être mise en pause, suspendue ou réactivée.
+                        </p>
+                    </div>
+
+                    <h2>5. Limitations de responsabilité</h2>
+                    <p>
+                        Certaines fonctionnalités de l'Application nécessitent une connexion Internet active. Le Fournisseur de Service ne peut être tenu responsable si l'Application ne fonctionne pas à pleine capacité en raison d'un manque d'accès au réseau ou de données mobiles.
+                    </p>
+                    <p>
+                        En utilisant l'Application, vous acceptez la responsabilité de tous les frais facturés par votre opérateur de réseau, y compris les frais de données à l'étranger (roaming).
+                    </p>
+                    <p>
+                        Bien que le Fournisseur de Service s'efforce de s'assurer que l'Application est à jour et exacte, il s'appuie sur des tiers pour lui fournir des informations. Le Fournisseur de Service n'accepte aucune responsabilité pour toute perte, directe ou indirecte, résultant de l'utilisation des fonctionnalités de l'Application.
+                    </p>
+
+                    <h2>6. Technologies d'Intelligence Artificielle (IA)</h2>
+                    <p>
+                        L'Application intègre des technologies d'Intelligence Artificielle (IA) pour fournir certaines fonctionnalités. En utilisant l'Application, vous acceptez que l'IA puisse être utilisée pour traiter des données et fournir des services conformément aux lois applicables.
+                    </p>
+
+                    <h2>7. Mises à jour et résiliation</h2>
+                    <p>
+                        L'Application est actuellement disponible et sa compatibilité système peut évoluer. Vous devrez télécharger les mises à jour pour continuer à l'utiliser. Le Fournisseur de Service ne garantit pas qu'il mettra toujours à jour l'Application pour la maintenir compatible avec la version de votre appareil.
+                    </p>
+                    <p>
+                        Le Fournisseur de Service peut cesser de fournir l'Application et résilier son utilisation à tout moment sans préavis. À la résiliation, tous les droits et licences qui vous sont accordés prendront fin, et vous devrez cesser d'utiliser l'Application et la supprimer de votre appareil.
+                    </p>
+
+                    <h2>8. Modifications de ces conditions générales</h2>
+                    <p>
+                        Le Fournisseur de Service peut mettre à jour périodiquement ses Conditions Générales. Il est conseillé de consulter régulièrement cette page pour prendre connaissance des éventuels changements.
+                    </p>
+
+                    <h2>9. Contactez-nous</h2>
+                    <p>
+                        Si vous avez des questions ou des suggestions, n'hésitez pas à contacter le Fournisseur de Service à l'adresse suivante : <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= GERMAN CONTENT ================= -->
+                <div class="lang-content" lang="de">
+                    <p>
+                        Diese Allgemeinen Geschäftsbedingungen gelten für die AnyBlindtest-App (im Folgenden als „Anwendung“ bezeichnet) für Mobilgeräte, die von Codevsit (im Folgenden als „Dienstanbieter“ bezeichnet) als kostenloser Dienst erstellt wurde.
+                    </p>
+                    <p>
+                        Durch das Herunterladen oder die Nutzung der Anwendung erklären Sie sich automatisch mit den folgenden Bedingungen einverstanden. Es wird dringend empfohlen, diese Bedingungen vor der Nutzung der Anwendung sorgfältig zu lesen und zu verstehen.
+                    </p>
+
+                    <h2>1. Geistiges Eigentum und Nutzungsbeschränkungen</h2>
+                    <p>
+                        Das unbefugte Kopieren, Ändern der Anwendung, von Teilen der Anwendung oder unserer Marken ist strengstens untersagt. Versuche, den Quellcode der Anwendung zu extrahieren, die Anwendung in andere Sprachen zu übersetzen oder abgeleitete Versionen zu erstellen, sind nicht gestattet. Alle Marken, Urheberrechte, Datenbankrechte und sonstigen geistigen Eigentumsrechte im Zusammenhang mit der Anwendung verbleiben beim Dienstanbieter.
+                    </p>
+
+                    <h2>2. Änderungen und Servicegebühren</h2>
+                    <p>
+                        Der Dienstanbieter behält sich das Recht vor, die Anwendung jederzeit und aus beliebigem Grund zu ändern oder Gebühren für seine Dienste zu erheben. Eventuelle Gebühren werden Ihnen klar kommuniziert.
+                    </p>
+
+                    <h2>3. Datensicherheit und Geräteintegrität</h2>
+                    <p>
+                        Die Anwendung speichert und verarbeitet personenbezogene Daten, die Sie bereitgestellt haben, um den Dienst bereitzustellen. Es liegt in Ihrer Verantwortung, die Sicherheit Ihres Geräts und den Zugriff auf die Anwendung zu gewährleisten.
+                    </p>
+                    <p>
+                        Der Dienstanbieter rät dringend davon ab, Ihr Gerät zu jailbreaken oder zu rooten (Entfernen von Softwarebeschränkungen des offiziellen Betriebssystems). Solche Aktionen könnten Ihr Gerät Sicherheitslücken oder Schadsoftware aussetzen und die korrekte Funktion der Anwendung beeinträchtigen oder verhindern.
+                    </p>
+
+                    <h2>4. Drittanbieter-Dienste</h2>
+                    <p>
+                        Die Anwendung nutzt Dienste von Drittanbietern, die eigene AGB haben. Hier sind die Links zu den Bedingungen der genutzten Dienstanbieter:
+                    </p>
+                    <ul>
+                        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <div class="offer-box" id="pre-registration-de">
+                        <div class="offer-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top: -1px;"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            Einführungsangebot
+                        </div>
+                        <h3>Einführungs- &amp; Vorregistrierungsangebot</h3>
+                        <p>
+                            Wenn Sie sich vor der offiziellen Veröffentlichung im Google Play Store für die Anwendung vorregistriert haben, haben Sie Anspruch auf einen <strong>kostenlosen 7-tägigen Testzeitraum</strong> des Premium-Pakets. Dieses Werbeangebot wird beim <strong>ersten Start</strong> der Anwendung auf Ihrem Gerät automatisch aktiviert. Der 7-tägige Testzeitraum beginnt sofort mit diesem ersten Start und läuft kontinuierlich für 168 Stunden. Er kann nicht pausiert, ausgesetzt oder reaktiviert werden.
+                        </p>
+                    </div>
+
+                    <h2>5. Haftungsbeschränkungen</h2>
+                    <p>
+                        Bestimmte Funktionen der Anwendung erfordern eine aktive Internetverbindung. Der Dienstanbieter haftet nicht, wenn die Anwendung mangels Netzwerk- oder Datenzugriffs nicht in vollem Umfang funktionsfähig ist.
+                    </p>
+                    <p>
+                        Mit der Nutzung der Anwendung akzeptieren Sie die Verantwortung für alle durch Ihren Mobilfunkanbieter entstehenden Gebühren, einschließlich Daten-Roaming-Gebühren.
+                    </p>
+                    <p>
+                        Obwohl der Dienstanbieter bestrebt ist, die Anwendung stets aktuell und fehlerfrei zu halten, verlässt er sich auf Informationen Dritter. Der Dienstanbieter übernimmt keine Haftung für direkte oder indirekte Verluste, die durch das Vertrauen auf die Funktionalitäten der Anwendung entstehen.
+                    </p>
+
+                    <h2>6. Technologien der Künstlichen Intelligenz (KI)</h2>
+                    <p>
+                        Die Anwendung integriert KI-Technologien zur Bereitstellung bestimmter Funktionen. Durch die Nutzung der Anwendung stimmen Sie zu, dass KI zur Verarbeitung von Daten und zur Erbringung von Diensten in Übereinstimmung mit den geltenden Gesetzen eingesetzt werden kann.
+                    </p>
+
+                    <h2>7. Updates und Kündigung</h2>
+                    <p>
+                        Die Anwendung ist derzeit verfügbar und die Systemanforderungen können sich ändern. Sie müssen Updates herunterladen, um die Anwendung weiterhin nutzen zu können. Der Dienstanbieter garantiert nicht, dass er die Anwendung stets so aktualisiert, dass sie mit Ihrer Systemversion kompatibel bleibt.
+                    </p>
+                    <p>
+                        Der Dienstanbieter kann die Bereitstellung der Anwendung jederzeit ohne vorherige Ankündigung einstellen. Bei Beendigung erlöschen alle Ihnen gewährten Rechte und Lizenzen, und Sie müssen die Nutzung der Anwendung einstellen und diese ggf. von Ihrem Gerät löschen.
+                    </p>
+
+                    <h2>8. Änderungen dieser Allgemeinen Geschäftsbedingungen</h2>
+                    <p>
+                        Der Dienstanbieter kann diese Bedingungen von Zeit zu Zeit aktualisieren. Es wird empfohlen, diese Seite regelmäßig auf Änderungen zu überprüfen.
+                    </p>
+
+                    <h2>9. Kontaktieren Sie uns</h2>
+                    <p>
+                        Wenn Sie Fragen oder Anregungen haben, wenden Sie sich bitte an den Dienstanbieter unter <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= ESPANOL CONTENT ================= -->
+                <div class="lang-content" lang="es">
+                    <p>
+                        Estos términos y condiciones se aplican a la aplicación AnyBlindtest (en lo sucesivo denominada «Aplicación») para dispositivos móviles que fue creada por Codevsit (en lo sucesivo denominado «Proveedor de Servicios») como un servicio gratuito.
+                    </p>
+                    <p>
+                        Al descargar o utilizar la Aplicación, acepta automáticamente los siguientes términos. Se recomienda encarecidamente que lea y comprenda detenidamente estos términos antes de utilizar la Aplicación.
+                    </p>
+
+                    <h2>1. Propiedad intelectual y restricciones de uso</h2>
+                    <p>
+                        Queda estrictamente prohibida la copia no autorizada, la modificación de la Aplicación, de cualquier parte de la Aplicación o de nuestras marcas comerciales. No se permiten los intentos de extraer el código fuente de la Aplicación, traducir la Aplicación a otros idiomas o crear versiones derivadas. Todas las marcas comerciales, derechos de autor, derechos de bases de datos y otros derechos de propiedad intelectual relacionados con la Aplicación pertenecen al Proveedor de Servicios.
+                    </p>
+
+                    <h2>2. Modificaciones y cargos por el servicio</h2>
+                    <p>
+                        El Proveedor de Servicios se reserva el derecho de modificar la Aplicación o cobrar por sus servicios en cualquier momento y por cualquier motivo. Cualquier cargo relacionado con la Aplicación o sus servicios se le comunicará claramente.
+                    </p>
+
+                    <h2>3. Seguridad de datos e integridad del dispositivo</h2>
+                    <p>
+                        La Aplicación almacena y procesa los datos personales que usted ha proporcionado para prestar el Servicio. Es su responsabilidad mantener la seguridad de su dispositivo y el acceso a la Aplicación.
+                    </p>
+                    <p>
+                        El Proveedor de Servicios desaconseja firmemente realizar jailbreak o rootear su teléfono (eliminar las restricciones de software impuestas por el sistema operativo oficial). Hacerlo podría exponer su dispositivo a malware, comprometer sus funciones de seguridad e impedir el correcto funcionamiento de la Aplicación.
+                    </p>
+
+                    <h2>4. Servicios de terceros</h2>
+                    <p>
+                        La Aplicación utiliza servicios de terceros que tienen sus propios términos y condiciones. A continuación se encuentran los enlaces a los términos de los proveedores utilizados:
+                    </p>
+                    <ul>
+                        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <div class="offer-box" id="pre-registration-es">
+                        <div class="offer-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top: -1px;"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            Promo de lanzamiento
+                        </div>
+                        <h3>Oferta de lanzamiento y prerregistro</h3>
+                        <p>
+                            Si se registró previamente para la Aplicación en Google Play Store antes de su lanzamiento oficial, es elegible para recibir una <strong>prueba gratuita de 7 días</strong> del paquete premium. Esta oferta promocional se activa automáticamente con el <strong>primer lanzamiento</strong> de la Aplicación en su dispositivo. El período de prueba de 7 días comienza inmediatamente con ese primer lanzamiento y se extiende de forma continua durante 168 horas; no se puede pausar, suspender ni reactivar.
+                        </p>
+                    </div>
+
+                    <h2>5. Limitaciones de responsabilidad</h2>
+                    <p>
+                        Ciertas funciones de la Aplicación requieren una conexión activa a Internet. El Proveedor de Servicios no se hace responsable si la Aplicación no funciona al máximo de su capacidad debido a la falta de acceso a Internet o a datos.
+                    </p>
+                    <p>
+                        Al usar la Aplicación, acepta la responsabilidad de los cargos facturados por su proveedor de red móvil, incluidos los cargos por roaming de datos.
+                    </p>
+                    <p>
+                        Aunque el Proveedor de Servicios se esfuerza por mantener la Aplicación actualizada y precisa, depende de terceros para obtener información. El Proveedor de Servicios no acepta responsabilidad alguna por pérdidas directas o indirectas resultantes del uso de las funciones de la Aplicación.
+                    </p>
+
+                    <h2>6. Tecnologías de Inteligencia Artificial (IA)</h2>
+                    <p>
+                        La Aplicación incorpora tecnologías de Inteligencia Artificial (IA) para proporcionar ciertas funciones. Al usar la Aplicación, acepta que la IA pueda usarse para procesar datos y ofrecer servicios en conformidad con las leyes vigentes.
+                    </p>
+
+                    <h2>7. Actualizaciones y rescisión</h2>
+                    <p>
+                        La Aplicación está disponible actualmente y los requisitos del sistema pueden cambiar. Deberá descargar las actualizaciones para seguir usándola. El Proveedor de Servicios no garantiza que siempre actualizará la Aplicación para mantenerla compatible con su versión del sistema operativo.
+                    </p>
+                    <p>
+                        El Proveedor de Servicios puede suspender la disponibilidad de la Aplicación y rescindir su uso en cualquier momento sin previo aviso. Tras la rescisión, todos los derechos y licencias concedidos finalizarán, y deberá dejar de usar la Aplicación y eliminarla si es necesario.
+                    </p>
+
+                    <h2>8. Cambios a estos términos y condiciones</h2>
+                    <p>
+                        El Proveedor de Servicios puede actualizar periódicamente estos Términos. Se recomienda revisar esta página con regularidad para conocer los cambios.
+                    </p>
+
+                    <h2>9. Contáctenos</h2>
+                    <p>
+                        Si tiene preguntas o sugerencias, no dude en ponerse en contacto con el Proveedor de Servicios en <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= ITALIANO CONTENT ================= -->
+                <div class="lang-content" lang="it">
+                    <p>
+                        I presenti termini e condizioni si applicano all'applicazione AnyBlindtest (di seguito denominata "Applicazione") per dispositivi mobili creata da Codevsit (di seguito denominato "Fornitore di servizi") come servizio gratuito.
+                    </p>
+                    <p>
+                        Scaricando o utilizzando l'Applicazione, l'utente accetta automaticamente i seguenti termini. Si consiglia vivamente di leggere e comprendere attentamente questi termini prima di utilizzare l'Applicazione.
+                    </p>
+
+                    <h2>1. Proprietà intellettuale e restrizioni d'uso</h2>
+                    <p>
+                        La copia non autorizzata, la modifica dell'Applicazione, di qualsiasi sua parte o dei nostri marchi è severamente vietata. Non è consentito alcun tentativo di estrarre il codice sorgente dell'Applicazione, tradurre l'Applicazione in altre lingue o creare versioni derivate. Tutti i marchi, i diritti d'autore, i diritti sui database e gli altri diritti di proprietà intellettuale relativi all'Applicazione rimangono di proprietà del Fornitore di servizi.
+                    </p>
+
+                    <h2>2. Modifiche e costi del servizio</h2>
+                    <p>
+                        Il Fornitore di servizi si riserva il diritto di modificare l'Applicazione o di richiedere un pagamento per i propri servizi in qualsiasi momento e per qualsiasi motivo. Qualsiasi costo per l'Applicazione o per i suoi servizi vi sarà comunicato chiaramente.
+                    </p>
+
+                    <h2>3. Sicurezza dei dati e integrità del dispositivo</h2>
+                    <p>
+                        L'Applicazione memorizza ed elabora i dati personali forniti dall'utente per erogare il Servizio. È responsabilità dell'utente mantenere la sicurezza del proprio dispositivo e l'accesso all'Applicazione.
+                    </p>
+                    <p>
+                        Il Fornitore di servizi sconsiglia vivamente di eseguire il jailbreak o il root del telefono (rimozione delle restrizioni software dell'OS). Tali azioni potrebbero esporre il dispositivo a malware, comprometterne le funzioni di sicurezza e impedire il corretto funzionamento dell'Applicazione.
+                    </p>
+
+                    <h2>4. Servizi di terze parti</h2>
+                    <p>
+                        L'Applicazione utilizza servizi di terze parti che dispongono di propri Termini e condizioni. Di seguito i collegamenti alle condizioni dei fornitori di servizi utilizzati :
+                    </p>
+                    <ul>
+                        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <div class="offer-box" id="pre-registration-it">
+                        <div class="offer-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top: -1px;"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            Promo di lancio
+                        </div>
+                        <h3>Offerta di lancio &amp; pre-registrazione</h3>
+                        <p>
+                            Se hai effettuato la pre-registrazione per l'Applicazione su Google Play Store prima della sua uscita ufficiale, hai diritto a una <strong>prova gratuita di 7 giorni</strong> del pacchetto premium. Questa offerta promozionale si attiva automaticamente al <strong>primo avvio</strong> dell'Applicazione sul tuo dispositivo. Il periodo di prova di 7 giorni inizia immediatamente a quel primo avvio e si estende in modo continuo per 168 ore; non può essere messo in pausa, sospeso o riattivato.
+                        </p>
+                    </div>
+
+                    <h2>5. Limitazioni di responsabilità</h2>
+                    <p>
+                        Alcune funzionalità dell'Applicazione richiedono una connessione Internet attiva. Il Fornitore di servizi non può essere ritenuto responsabile se l'Applicazione non funziona a piena capacità a causa della mancanza di connessione di rete o di dati.
+                    </p>
+                    <p>
+                        Utilizzando l'Applicazione, l'utente accetta la responsabilità per tutti i costi addebitati dal proprio operatore, compresi i costi per i dati in roaming.
+                    </p>
+                    <p>
+                        Sebbene il Fornitore di servizi si impegni a garantire che l'Applicazione sia aggiornata e accurata, si affida a terze parti per ricevere informazioni. Il Fornitore di servizi non si assume alcuna responsabilità per perdite, dirette o indirette, derivanti dall'affidamento sulle funzionalità dell'Applicazione.
+                    </p>
+
+                    <h2>6. Tecnologie di Intelligenza Artificial (IA)</h2>
+                    <p>
+                        L'Applicazione incorpora tecnologie di intelligenza artificiale (IA) per fornire determinate funzioni. Utilizzando l'Applicazione, l'utente accetta che l'IA possa essere utilizzata per elaborare dati e fornire servizi in conformità con le leggi vigenti.
+                    </p>
+
+                    <h2>7. Aggiornamenti e risoluzione</h2>
+                    <p>
+                        L'Applicazione è attualmente disponibile e la compatibilità del sistema operativo può cambiare. Sarà necessario scaricare gli aggiornamenti per continuare a utilizzarla. Il Fornitore di servizi non garantisce che aggiornerà sempre l'Applicazione per mantenerla compatibile con la versione installata sul dispositivo.
+                    </p>
+                    <p>
+                        Il Fornitore di servizi può interrompere la disponibilità dell'Applicazione e risolverne l'uso in qualsiasi momento senza preavviso. Alla risoluzione, tutti i diritti e le licenze concessi cesseranno e l'utente dovrà smettere di utilizzare l'Applicazione ed eliminarla se necessario.
+                    </p>
+
+                    <h2>8. Modifiche ai presenti termini e condizioni</h2>
+                    <p>
+                        Il Fornitore di servizi può aggiornare periodicamente questi Termini. Si consiglia di consultare regolarmente questa pagina per verificare eventuali modifiche.
+                    </p>
+
+                    <h2>9. Contattaci</h2>
+                    <p>
+                        In caso di domande o suggerimenti, non esitare a contattare il Fornitore di servizi all'indirizzo : <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= PORTUGUES CONTENT ================= -->
+                <div class="lang-content" lang="pt">
+                    <p>
+                        Estes termos e condições aplicam-se à aplicação AnyBlindtest (doravante referida como "Aplicação") para dispositivos móveis que foi criada pela Codevsit (doravante referida como "Prestador de Serviços") como um serviço gratuito.
+                    </p>
+                    <p>
+                        Ao transferir ou utilizar a Aplicação, está a aceitar automaticamente os seguintes termos. Aconselha-se vivamente que leia e compreenda estes termos antes de utilizar a Aplicação.
+                    </p>
+
+                    <h2>1. Propriedade intelectual e restrições de utilização</h2>
+                    <p>
+                        A cópia não autorizada, a modificação da Aplicação, de qualquer parte da mesma ou das nossas marcas registadas é estritamente proibida. Não são permitidas tentativas de extrair o código-fonte da Aplicação, de traduzir a Aplicação para outros idiomas ou de criar versões derivadas. Todos os direitos de propriedade intelectual relativos à Aplicação permanecem propriedade exclusiva do Prestador de Serviços.
+                    </p>
+
+                    <h2>2. Modificações e custos do serviço</h2>
+                    <p>
+                        O Prestador de Serviços reserva-se o direito de modificar a Aplicação ou de cobrar pelos seus serviços a qualquer momento e por qualquer motivo. Quaisquer custos relativos à Aplicação ou aos seus serviços ser-lhe-ão claramente comunicados.
+                    </p>
+
+                    <h2>3. Segurança de dados e integridade do dispositivo</h2>
+                    <p>
+                        A Aplicação armazena e processa os dados pessoais por si fornecidos para prestar o Serviço. É da sua responsabilidade manter a segurança do seu dispositivo e o acesso à Aplicação.
+                    </p>
+                    <p>
+                        O Prestador de Serviços desaconselha vivamente a realização de jailbreak ou root no seu dispositivo (remoção das restrições de software impostas pelo sistema operativo oficial). Tais ações podem expor o seu dispositivo a malware, comprometer as suas funções de segurança e impedir o correto funcionamento da Aplicação.
+                    </p>
+
+                    <h2>4. Serviços de terceiros</h2>
+                    <p>
+                        A Aplicação utiliza serviços de terceiros que têm os seus próprios Termos e Condições. Seguem-se as hiperligações para as condições dos prestadores utilizados:
+                    </p>
+                    <ul>
+                        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <div class="offer-box" id="pre-registration-pt">
+                        <div class="offer-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top: -1px;"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            Promo de lançamento
+                        </div>
+                        <h3>Oferta de lançamento e pré-registo</h3>
+                        <p>
+                            Se efetuou o pré-registo para a Aplicação na Google Play Store antes do seu lançamento oficial, é elegível para receber um <strong>período de teste gratuito de 7 dias</strong> para o pacote premium. Esta oferta promocional é ativada automaticamente com o <strong>primeiro lançamento</strong> da Aplicação no seu dispositivo. O período de teste de 7 dias inicia-se imediatamente com esse primeiro lançamento e estende-se continuamente por 168 horas; não pode ser colocado em pausa, suspenso ou reativado.
+                        </p>
+                    </div>
+
+                    <h2>5. Limitações de responsabilidade</h2>
+                    <p>
+                        Determinadas funções da Aplicação requerem uma ligação ativa à Internet. O Prestador de Serviços não pode ser responsabilizado se a Aplicação não funcionar em plena capacidade devido à falta de acesso à rede ou a dados móveis.
+                    </p>
+                    <p>
+                        Ao utilizar a Aplicação, aceita a responsabilidade por quaisquer custos cobrados pelo seu operador móvel, incluindo custos de roaming de dados.
+                    </p>
+                    <p>
+                        Embora o Prestador de Serviços se esforce por manter a Aplicação atualizada e precisa, depende de terceiros para obter informações. O Prestador de Serviços não assume qualquer responsabilidade por perdas, diretas ou indiretas, resultantes da confiança nas funcionalidades da Aplicação.
+                    </p>
+
+                    <h2>6. Tecnologias de Inteligência Artificial (IA)</h2>
+                    <p>
+                        A Aplicação incorpora tecnologias de Inteligência Artificial (IA) para fornecer certas funcionalidades. Ao utilizar a Aplicação, concorda que a IA possa ser utilizada para processar dados e prestar serviços em conformidade com as leis aplicáveis.
+                    </p>
+
+                    <h2>7. Atualizações e rescisão</h2>
+                    <p>
+                        A Aplicação está atualmente disponível e a compatibilidade do sistema operativo poderá sofrer alterações. Necessitará de descarregar as atualizações para continuar a utilizá-la. O Prestador de Serviços não garante que atualizará sempre a Aplicação de modo a mantê-la compatível com a versão do seu dispositivo.
+                    </p>
+                    <p>
+                        O Prestador de Serviços pode cessar a disponibilização da Aplicação e rescindir a sua utilização a qualquer momento sem aviso prévio. Após a rescisão, todos os direitos e licenças concedidos expirarão, devendo cessar a utilização da Aplicação e eliminá-la, se necessário.
+                    </p>
+
+                    <h2>8. Alterações a estes termos e condições</h2>
+                    <p>
+                        O Prestador de Serviços poderá atualizar periodicamente estes Termos. Aconselha-se a consulta regular desta página para verificar eventuais alterações.
+                    </p>
+
+                    <h2>9. Contacte-nos</h2>
+                    <p>
+                        Se tiver alguma questão ou sugestão, não hesite em contactar o Prestador de Serviços através do e-mail : <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= RUSSIAN CONTENT ================= -->
+                <div class="lang-content" lang="ru">
+                    <p>
+                        Настоящие условия и положения применяются к приложению AnyBlindtest (далее именуемому «Приложение») для мобических устройств, созданному Codevsit (далее именуемому «Поставщик услуг») как бесплатный сервис.
+                    </p>
+                    <p>
+                        При загрузке или использовании Приложения вы автоматически соглашаетесь со следующими условиями. Настоятельно рекомендуется внимательно ознакомиться с этими условиями перед использованием Приложения.
+                    </p>
+
+                    <h2>1. Интеллектуальная собственность и ограничения на использование</h2>
+                    <p>
+                        Несанкционированное копирование, модификация Приложения, любой его части или наших товарных знаков строго запрещены. Попытки извлечь исходный код Приложения, перевести Приложение на другие языки или создать производные версии не допускаются. Все товарные знаки, авторские права, права на базы данных и другие права интеллектуальной собственности, связанные с Приложением, остаются собственностью Поставщика услуг.
+                    </p>
+
+                    <h2>2. Изменения и плата за услуги</h2>
+                    <p>
+                        Поставщик услуг оставляет за собой право изменять Приложение или взимать плату за его услуги в любое время и по любой причине. Любые сборы за Приложение или его услуги будут четко сообщены вам.
+                    </p>
+
+                    <h2>3. Безопасность данных и целостность устройства</h2>
+                    <p>
+                        Приложение хранит и обрабатывает персональные данные, предоставленные вами для предоставления Сервиса. Вы несете ответственность за безопасность вашего устройства и доступ к Приложению.
+                    </p>
+                    <p>
+                        Поставщик услуг настоятельно рекомендует воздерживаться от джейлбрейка или рутирования вашего устройства (снятия программных ограничений операционной системы). Это может подвергнуть устройство угрозам безопасности, вредоносному ПО и помешать корректной работе Приложения.
+                    </p>
+
+                    <h2>4. Сторонние службы</h2>
+                    <p>
+                        Приложение использует сторонние службы со своими собственными Условиями использования. Ниже приведены ссылки на условия этих поставщиков:
+                    </p>
+                    <ul>
+                        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <div class="offer-box" id="pre-registration-ru">
+                        <div class="offer-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top: -1px;"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            Акция к запуску
+                        </div>
+                        <h3>Предложение к запуску и предрегистрации</h3>
+                        <p>
+                            Если вы зарегистрировались в Приложении в Google Play Store до его официального выпуска, вы имеете право на <strong>бесплатную 7-дневную пробную версию</strong> премиум-пакета. Это предложение автоматически активируется при <strong>первом запуске</strong> Приложения на вашем устройстве. Пробный период начинается немедленно при первом запуске и длится непрерывно 168 часов; его нельзя приостановить или активировать повторно.
+                        </p>
+                    </div>
+
+                    <h2>5. Ограничение ответственности</h2>
+                    <p>
+                        Для некоторых функций Приложения требуется активное интернет-соединение. Поставщик услуг не несет ответственности, если Приложение работает не на полную мощность из-за отсутствия доступа к сети или исчерпания трафика.
+                    </p>
+                    <p>
+                        Используя Приложение, вы соглашаетесь с оплатой любых услуг вашего мобильного оператора, включая роуминг данных.
+                    </p>
+                    <p>
+                        Поставщик услуг стремится обеспечить актуальность Приложения, но полагается на информацию от третьих лиц. Поставщик услуг не несет ответственности за прямые или косвенные убытки, возникшие в результате доверия к функциям Приложения.
+                    </p>
+
+                    <h2>6. Технологии искусственного интеллекта (ИИ)</h2>
+                    <p>
+                        Приложение использует технологии искусственного интеллекта (ИИ) для предоставления определенных функций. Используя Приложение, вы соглашаетесь с тем, что ИИ может использоваться для обработки данных и предоставления услуг в соответствии с законом.
+                    </p>
+
+                    <h2>7. Обновления и прекращение действия</h2>
+                    <p>
+                        В будущем требования к системе могут измениться. Вам потребуется загрузить обновления, чтобы продолжить использование Приложения. Поставщик услуг не гарантирует, что обновления всегда будут совместимы с версией вашей операционной системы.
+                    </p>
+                    <p>
+                        Поставщик услуг может прекратить предоставление Приложения в любое время без предварительного уведомления. При этом все предоставленные вам права и лицензии прекращаются, и вы обязаны удалить Приложение со своего устройства.
+                    </p>
+
+                    <h2>8. Изменения в настоящих условиях и положениях</h2>
+                    <p>
+                        Поставщик услуг может периодически обновлять эти Условия. Рекомендуется регулярно проверять эту страницу на наличие изменений.
+                    </p>
+
+                    <h2>9. Свяжитесь с нами</h2>
+                    <p>
+                        Если у вас есть какие-либо вопросы или предложения, свяжитесь с Поставщиком услуг по адресу : <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= JAPANESE CONTENT ================= -->
+                <div class="lang-content" lang="ja">
+                    <p>
+                        本利用規約は、Codevsit（以下「サービスプロバイダー」）が無料サービスとして作成したモバイルデバイス向けAnyBlindtestアプリ（以下「本アプリケーション」）に適用されます。
+                    </p>
+                    <p>
+                        本アプリケーションをダウンロードまたは利用することにより、自動的に以下の規約に同意したことになります。本アプリケーションをご利用になる前に、本規約をよくお読みになり、ご理解いただくことを強くお勧めします。
+                    </p>
+
+                    <h2>1. 知的財産および利用制限</h2>
+                    <p>
+                        本アプリケーション、その一部、または当社の商標を無断で複製、改変することは厳しく禁止されています。本アプリケーションのソースコードを抽出しようとしたり、他言語に翻訳したり、派生版を作成したりすることは認められません。本アプリケーションに関するすべての商標、著作権、データベース権、およびその他の知的財産権は、引き続きサービスプロバイダーに帰属します。
+                    </p>
+
+                    <h2>2. 変更およびサービス料金</h2>
+                    <p>
+                        サービスプロバイダーは、いつでも、またいかなる理由によっても、本アプリケーションを変更し、またはサービスに対して料金を請求する権利を留保します。本アプリケーションまたはそのサービスに関する請求が発生する場合は、事前にお客様に明確に通知されます。
+                    </p>
+
+                    <h2>3. データセキュリティとデバイスの保全</h2>
+                    <p>
+                        本アプリケーションは、本サービスを提供するためにお客様から提供された個人データを保存し処理します。デバイスのセキュリティおよび本アプリケーションへのアクセスの管理はお客様自身の責任で行ってください。
+                    </p>
+                    <p>
+                        公式オペレーティングシステムに課されている制限を解除する行為（ジェイルブレイクやルート化など）は行わないでください。デバイスがセキュリティの脆弱性にさらされたり、マルウェアやウイルスの影響を受けたりして、本アプリケーションが正常に動作しなくなる恐れがあります。
+                    </p>
+
+                    <h2>4. サードパーティサービス</h2>
+                    <p>
+                        本アプリケーションは、独自の利用規約を持つサードパーティサービスを使用しています。リンクは以下の通りです：
+                    </p>
+                    <ul>
+                        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <div class="offer-box" id="pre-registration-ja">
+                        <div class="offer-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top: -1px;"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            リリース記念特典
+                        </div>
+                        <h3>リリース＆事前登録特典</h3>
+                        <p>
+                            公式リリース前にGoogle Playストアで事前登録をしていただいたユーザーは、プレミアム機能の<strong>7日間無料お試し期間</strong>をご利用いただけます。この特典は、本アプリケーションをお手元のデバイスで<strong>初めて起動した時点</strong>で自動的に有効化されます。無料トライアルは初回起動後から連続して168時間（7日間）継続し、一時停止や再開を行うことはできません。
+                        </p>
+                    </div>
+
+                    <h2>5. 免責事項</h2>
+                    <p>
+                        本アプリケーションの一部機能はアクティブなインターネット接続を必要とします。通信量制限の超過や回線の切断などによりアプリケーションが完全に動作しなかった場合、サービスプロバイダーは一切の責任を負いません。
+                    </p>
+                    <p>
+                        本アプリケーションの利用に伴う通信料（データローミング料金を含む）は、お客様自身の責任となります。
+                    </p>
+                    <p>
+                        サービスプロバイダーはアプリケーションの情報が常に正確であるよう努めますが、第三者からの提供情報に依存しています。アプリケーションの使用によって生じた直接的または間接的な損失について、サービスプロバイダーは責任を負いません。
+                    </p>
+
+                    <h2>6. 人工知能（AI）技術</h2>
+                    <p>
+                        本アプリケーションは、特定の機能を提供するために人工知能（AI）技術を統合しています。お客様は、適用法に従ってサービス向上およびデータ処理のためにAI技術が使用されることに同意するものとします。
+                    </p>
+
+                    <h2>7. アップデートおよび終了</h2>
+                    <p>
+                        OS要件の変更に伴い、本アプリケーションを利用し続けるためにアップデートをダウンロードする必要がある場合があります。サービスプロバイダーは、あらゆるOSバージョンに対して互換性を保ち続けることを保証するものではありません。
+                    </p>
+                    <p>
+                        また、サービスプロバイダーは事前通知なしにいつでもサービスを終了する場合があります。終了時には、提供されていたライセンス等は失効し、お客様はアプリケーションの利用を停止し、デバイスから削除する必要があります。
+                    </p>
+
+                    <h2>8. 本利用規約の変更</h2>
+                    <p>
+                        本規約は定期的に更新される場合があります。最新の情報をご確認いただくため、このページを定期的に確認することをお勧めします。
+                    </p>
+
+                    <h2>9. お問い合わせ</h2>
+                    <p>
+                        ご質問やご提案がある場合は、サービスプロバイダー（メールアドレス： <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a> ）までご連絡ください。
+                    </p>
+                </div>
+
+                <!-- ================= KOREAN CONTENT ================= -->
+                <div class="lang-content" lang="ko">
+                    <p>
+                        본 이용 약관은 Codevsit(이하 "서비스 제공자")이 무료 서비스로 제작한 모바일 기기용 AnyBlindtest 앱(이하 "애플리케이션")에 적용됩니다.
+                    </p>
+                    <p>
+                        애플리케이션을 다운로드하거나 이용함으로써 귀하는 다음 약관에 자동으로 동의하게 됩니다. 애플리케이션을 사용하기 전에 본 약관을 주의 깊게 읽고 이해하는 것을 강력히 권장합니다.
+                    </p>
+
+                    <h2>1. 지식 재산 및 사용 제한</h2>
+                    <p>
+                        본 애플리케이션 또는 상표의 무단 복제, 수정은 엄격히 금지됩니다. 애플리케이션의 소스 코드를 추출하거나, 다른 언어로 번역하거나, 파생 버전을 제작하려는 시도는 허용되지 않습니다. 애플리케이션에 대한 모든 상표, 저작권, 데이터베이스 권리 등은 계속해서 서비스 제공자의 소유로 남습니다.
+                    </p>
+
+                    <h2>2. 변경 및 서비스 요금</h2>
+                    <p>
+                        서비스 제공자는 사전 통지 없이 언제든지 애플리케이션을 변경하거나 유료 서비스로 전환할 권리를 보유합니다. 요금이 부과되는 경우 사전에 명확하게 안내해 드립니다.
+                    </p>
+
+                    <h2>3. 데이터 보안 및 기기 무결성</h2>
+                    <p>
+                        애플리케이션은 서비스를 제공하기 위해 사용자가 제공한 개인 정보를 수집 및 처리합니다. 기기의 보안 및 애플리케이션 접근 관리는 사용자의 책임입니다.
+                    </p>
+                    <p>
+                        운영체제의 제한 사항을 우회하는 루팅이나 탈옥 행위는 자제해주시기 바랍니다. 이러한 행동은 기기를 보안 취약점에 노출시키거나 보안 기능을 손상시켜 애플리케이션이 정상적으로 작동하지 않는 원인이 될 수 있습니다.
+                    </p>
+
+                    <h2>4. 제3자 서비스</h2>
+                    <p>
+                        본 애플리케이션은 고유한 이용약관을 보유한 제3자 서비스를 활용합니다. 해당 서비스 이용 약관의 링크는 다음과 같습니다:
+                    </p>
+                    <ul>
+                        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <div class="offer-box" id="pre-registration-ko">
+                        <div class="offer-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top: -1px;"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            출시 기념 프로모션
+                        </div>
+                        <h3>출시 및 사전 예약 혜택</h3>
+                        <p>
+                            공식 출시 전에 Google Play 스토어에서 사전 예약을 완료한 사용자는 프리미엄 번들의 <strong>7일 무료 체험</strong> 혜택을 받으실 수 있습니다. 본 혜택은 사용자 기기에서 애플리케이션을 <strong>처음 시작할 때</strong> 자동으로 활성화됩니다. 7일 무료 체험 기간은 최초 실행 시점부터 연속 168시간 동안 유지되며, 일시 중지나 양도 또는 재활성화가 불가능합니다.
+                        </p>
+                    </div>
+
+                    <h2>5. 책임의 한계</h2>
+                    <p>
+                        일부 기능은 데이터 네트워크 연결이 필요합니다. 통신 장애 또는 데이터 제한 초과 등으로 인해 발생하는 오작동에 대해 서비스 제공자는 책임을 지지 않습니다.
+                    </p>
+                    <p>
+                        애플리케이션 사용 시 발생하는 데이터 통신료(데이터 로밍 비용 포함) 등은 모두 사용자의 책임입니다.
+                    </p>
+                    <p>
+                        서비스 제공자는 정확한 정보가 전달되도록 노력하지만 정보의 일부는 제3자가 제공하므로 오차나 오류가 존재할 수 있습니다. 애플리케이션 정보에만 의존하여 발생하는 직접적/간접적 피해에 대하여 서비스 제공자는 책임을 지지 않습니다.
+                    </p>
+
+                    <h2>6. 인공지능(AI) 기술</h2>
+                    <p>
+                        본 애플리케이션은 특정 기능을 제공하기 위하여 인공지능(AI) 기술을 포함하고 있습니다. 귀하는 관련 법률에 따라 데이터 처리 및 기능 구현에 AI 기술이 사용될 수 있음에 동의합니다.
+                    </p>
+
+                    <h2>7. 업데이트 및 종료</h2>
+                    <p>
+                        OS 업그레이드로 인하여 애플리케이션을 지속적으로 이용하기 위해서는 업데이트를 필수적으로 설치해야 할 수 있습니다. 서비스 제공자는 모든 OS 버전과의 상호 호환성을 항상 유지하겠다고 보장하지는 않습니다.
+                    </p>
+                    <p>
+                        또한 서비스 제공자는 사전 통지 없이 언제든지 임의로 서비스를 중단하거나 종료할 권리를 보유합니다. 서비스가 종료되면 귀하에게 부여되었던 모든 라이선스는 효력이 상실되며, 기기에서 삭제해야 합니다.
+                    </p>
+
+                    <h2>8. 본 이용 약관의 변경</h2>
+                    <p>
+                        본 이용약관은 주기적으로 변경 및 업데이트될 수 있으므로, 정기적으로 이 페이지를 확인하시는 것을 권장합니다.
+                    </p>
+
+                    <h2>9. 문의하기</h2>
+                    <p>
+                        질문이나 제안 사항이 있으시면 언제든지 다음 이메일로 서비스 제공자에게 문의해 주세요: <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>.
+                    </p>
+                </div>
+
+                <!-- ================= CHINESE CONTENT ================= -->
+                <div class="lang-content" lang="zh">
+                    <p>
+                        本条款与条件适用于由 Codevsit（以下简称“服务提供商”）作为免费服务创建的用于移动设备的 AnyBlindtest 应用程序（以下简称“应用程序”）。
+                    </p>
+                    <p>
+                        一旦下载或使用该应用程序，即表示您自动同意以下条款。强烈建议您在使用应用程序之前仔细阅读并理解这些条款。
+                    </p>
+
+                    <h2>1. 知识产权与使用限制</h2>
+                    <p>
+                        严禁未经授权复制、修改应用程序、应用程序的任何部分或我们的商标。不允许任何尝试提取应用程序源代码、将应用程序翻译成其他语言或创建衍生版本的行为。与本应用程序相关的所有商标、版权、数据库权和其他知识产权仍归服务提供商所有。
+                    </p>
+
+                    <h2>2. 修改与服务收费</h2>
+                    <p>
+                        服务提供商保留随时以任何理由修改应用程序或对其服务收费的权利。任何关于应用程序或其服务的费用都将向您明确说明。
+                    </p>
+
+                    <h2>3. 数据安全与设备完整性</h2>
+                    <p>
+                        本应用程序存储并处理您向服务提供商提供的个人数据，以提供服务。您有责任维护手机的安全以及对该应用程序的访问。
+                    </p>
+                    <p>
+                        服务提供商强烈建议不要对您的手机进行越狱或 Root（即解除设备官方操作系统施加的软件限制）。此类操作可能会使您的手机暴露于恶意软件、病毒、危害手机的安全功能，并可能导致应用程序无法正常运行。
+                    </p>
+
+                    <h2>4. 第三方服务</h2>
+                    <p>
+                        本应用程序利用了拥有自身条款与条件的第三方服务。以下是本应用程序使用的第三方服务提供商的条款与条件链接：
+                    </p>
+                    <ul>
+                        <li><a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Google Play Services</a></li>
+                        <li><a href="https://www.google.com/analytics/terms/" target="_blank" rel="noopener noreferrer">Google Analytics for Firebase</a></li>
+                        <li><a href="https://firebase.google.com/terms/crashlytics" target="_blank" rel="noopener noreferrer">Firebase Crashlytics</a></li>
+                    </ul>
+
+                    <div class="offer-box" id="pre-registration-zh">
+                        <div class="offer-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-top: -1px;"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                            发布促销
+                        </div>
+                        <h3>发布与预注册优惠</h3>
+                        <p>
+                            如果您在应用程序在 Google Play 商店正式发布前进行了预注册，您将有资格获得 <strong>7 天免费试用</strong> 尊享版礼包。此促销活动将在您的设备上<strong>首次启动</strong>应用程序时自动激活。7 天的试用期从首次启动时立即开始，持续 168 小时；中途无法暂停、中止或重新激活。
+                        </p>
+                    </div>
+
+                    <h2>5. 责任限制</h2>
+                    <p>
+                        本应用程序的某些功能需要有源互联网连接（Wi-Fi 或移动数据网络）。如果由于没有 Wi-Fi 或超出数据限额导致应用程序无法正常运行，服务提供商不承担责任。
+                    </p>
+                    <p>
+                        通过使用该应用程序，您接受对移动运营商收取的任何费用（包括数据漫游费）承担责任。
+                    </p>
+                    <p>
+                        尽管服务提供商努力确保应用程序在任何时候都是更新和准确的，但他们确实依赖第三方提供信息。服务提供商对您因完全依赖本应用程序的功能而遭受的任何直接或间接损失不承担任何责任。
+                    </p>
+
+                    <h2>6. 人工智能 (AI) 技术</h2>
+                    <p>
+                        本应用程序集成了人工智能 (AI) 技术以提供某些功能或服务。通过使用本应用程序，您确认并同意 AI 可用于在符合适用法律的前提下处理数据并提供功能，以优化用户体验。
+                    </p>
+
+                    <h2>7. 更新与终止</h2>
+                    <p>
+                        本应用程序目前可用，随着操作系统要求的变化，您需要下载更新才能继续使用本应用程序。服务提供商不保证将始终更新该应用程序以使其与您设备上安装的特定操作系统版本兼容。
+                    </p>
+                    <p>
+                        服务提供商也可能希望停止提供该应用程序，并可随时终止其使用，而无需向您提供终止通知。除非另有说明，否则在任何终止时，(a) 授予您的权利和许可将终止；(b) 您必须停止使用该应用程序，并在必要时从您的设备中将其删除。
+                    </p>
+
+                    <h2>8. 本条款与条件的变更</h2>
+                    <p>
+                        服务提供商可能会定期更新其条款与条件。因此，建议您定期查看此页面以了解任何变化。
+                    </p>
+
+                    <h2>9. 联系我们</h2>
+                    <p>
+                        如果您对服务提供商的条款与条件有任何疑问或建议，请随时通过以下方式与我们联系： <a href="mailto:codevsit@proton.me" style="font-family: 'JetBrains Mono', monospace;">codevsit@proton.me</a>。
+                    </p>
+                </div>
+
+                <!-- Hidden Anchor helper logic for both #pre-registration and #pre-inscription -->
+                <div id="pre-registration"></div>
+                <div id="pre-inscription"></div>
+
+            </div>
+            
+            <footer>
+                <p>
+                    This Terms and Conditions page was generated by 
+                    <a href="https://app-privacy-policy-generator.nisrulz.com/" target="_blank" rel="noopener noreferrer">App Privacy Policy Generator</a>.
+                </p>
+            </footer>
+        </div>
+
+        <!-- ================= JAVASCRIPT ================= -->
+        <script>
+            // Supported languages list
+            const SUPPORTED_LANGUAGES = ['en', 'fr', 'de', 'es', 'it', 'pt', 'ru', 'ja', 'ko', 'zh'];
+            const DEFAULT_LANGUAGE = 'en';
+
+            /**
+             * Detects user preferred language based on URL query or browser locale.
+             */
+            function getPreferredLanguage() {
+                // 1. Force via URL parameter (e.g. ?lang=fr or ?hl=fr)
+                const urlParams = new URLSearchParams(window.location.search);
+                const langParam = urlParams.get('lang') || urlParams.get('hl');
+                if (langParam) {
+                    const cleanParam = langParam.toLowerCase().split('-')[0];
+                    if (SUPPORTED_LANGUAGES.includes(cleanParam)) return cleanParam;
+                }
+
+                // 2. Fallback to native browser language
+                const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase().split('-')[0];
+                if (SUPPORTED_LANGUAGES.includes(browserLang)) {
+                    return browserLang;
+                }
+
+                // 3. System Default
+                return DEFAULT_LANGUAGE;
+            }
+
+            /**
+             * Sets the active language state and updates UI visibility.
+             */
+            function setLanguage(lang) {
+                const activeLang = SUPPORTED_LANGUAGES.includes(lang) ? lang : DEFAULT_LANGUAGE;
+                
+                // Update HTML land tag
+                document.documentElement.lang = activeLang;
+                
+                // Sync Language selector
+                const selector = document.getElementById('lang-selector');
+                if (selector) selector.value = activeLang;
+                
+                // Show selected language blocks and hide the rest
+                document.querySelectorAll('.lang-content').forEach(element => {
+                    if (element.getAttribute('lang') === activeLang) {
+                        element.classList.add('active');
+                    } else {
+                        element.classList.remove('active');
+                    }
+                });
+
+                // Update standard hash anchor routing (if scroll target is loaded)
+                handleHashScroll();
+            }
+
+            /**
+             * Handles custom anchor linking (#pre-registration or #pre-inscription) across different languages.
+             */
+            function handleHashScroll() {
+                const hash = window.location.hash;
+                if (hash === '#pre-registration' || hash === '#pre-inscription') {
+                    // Get document active language to target specific offer box if needed
+                    const activeLang = document.documentElement.lang || DEFAULT_LANGUAGE;
+                    const targetId = `pre-registration-${activeLang}`;
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        // Smooth scroll to the translated offer box
+                        setTimeout(() => {
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 100);
+                    }
+                }
+            }
+
+            // Bind Event Listeners
+            document.addEventListener('DOMContentLoaded', () => {
+                // Initialize default or detected language
+                const preferredLang = getPreferredLanguage();
+                setLanguage(preferredLang);
+                
+                // Handle manual dropdown selections
+                const selector = document.getElementById('lang-selector');
+                if (selector) {
+                    selector.addEventListener('change', (e) => {
+                        setLanguage(e.target.value);
+                    });
+                }
+
+                // Handle hash change events (e.g. clicking an anchor link later)
+                window.addEventListener('hashchange', handleHashScroll);
+            });
+        </script>
     </body>
-    </html>
-      
+</html>
